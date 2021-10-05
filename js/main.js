@@ -1,6 +1,8 @@
 const btn = document.querySelector('.uredi');
 const overlay = document.querySelector('.overlay');
 const closeBtn = document.querySelector('.close');
+const checked = document.querySelectorAll('.checked');
+
 
 let x;
 btn.addEventListener('click', e=>{
@@ -9,8 +11,19 @@ btn.addEventListener('click', e=>{
     e.preventDefault();
 });
 
-console.log(closeBtn);
-
 closeBtn.addEventListener('click', ()=>{
     overlay.classList.remove('yes');
-})
+});
+
+checked.forEach((check) => {
+    check.addEventListener('click', () => {
+      let y = check.classList.contains('fa-check');
+      console.log(y);
+      if (y === true) {
+        check.classList.add('green');
+      }
+      else{
+        check.classList.add('red');
+      }
+    });
+  });

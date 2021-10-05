@@ -131,3 +131,14 @@ h2{
 .fa-times{
     color: red;
 }
+
+.green{
+    background: green;
+    color: #fff;
+}
+
+
+.red{
+    background: red;
+    color: #fff;
+}
