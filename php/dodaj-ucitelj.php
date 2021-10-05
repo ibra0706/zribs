@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
+    <title>Ustvari učitelja</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -91,31 +91,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Create Record</h2>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <h2 class="mt-5">Ustvari učitelja</h2>
+                    <!-- <p>Please fill this form and submit to add employee record to the database.</p> -->
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="ime" class="form-control <?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
+                            <label>Ime</label>
+                            <input type="text" name="ime" autocomplete="false" class="form-control <?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
                             <span class="invalid-feedback"><?php echo $ime_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Priimek</label>
                             <input type="text" name="priimek" class="form-control <?php echo (!empty($priimek_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priimek; ?>">
                             <span class="invalid-feedback"><?php echo $priimek_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>Mail</label>
                             <input type="text" name="mail" class="form-control <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?>"><?php echo $mail; ?>
                             <span class="invalid-feedback"><?php echo $mail_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Salary</label>
-                            <input type="password" name="geslo" class="form-control <?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $geslo; ?>">
+                            <label>Geslo</label>
+                            <input type="text" name="geslo" class="form-control <?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $geslo; ?>">
                             <span class="invalid-feedback"><?php echo $geslo_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Dodaj">
+                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        
