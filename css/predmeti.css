@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -14,46 +14,47 @@ body{
     font-family: Lato;
 }
 
-h1 {
-  font-family: "audiowide";
-  font-weight: 300;
-  color: #fa941d;
-  font-size: 3rem;
+h1{   
+    font-family: "audiowide";
+    font-weight: 300;
+    color: #fa941d;
+    font-size: 3rem;
 }
 
-a {
-  text-decoration: none;
-  color: #fa941d;
-  padding: 1rem 2rem;
-  height: 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "lato";
-  font-size: 2rem;
-  border: 2px solid #fa941d;
-  transition: background-color 0.3s, color 0.3s;
+a{
+    text-decoration: none;
+    color: #fff;
+    background: #fa941d;
+    padding: 1rem 2rem;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "lato";
+    font-size: 2rem;
+    border: 2px solid #fa941d;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.naslov {
-  height: 10vh;
-  padding: 5rem 10rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.naslov{
+    height: 10vh;
+    padding: 7rem 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.gumba {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  gap: 3rem;
-  margin: 0 20%;
+.gumba{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 2rem;
+    margin: 3rem 40% 0 40%;
 }
 
-i {
-  font-weight: 100;
-  font-size: 2rem;
+i{
+    font-weight: 100;
+    font-size: 2rem;
 }
 
 a:hover{
@@ -129,9 +130,4 @@ h2{
 
 .fa-times{
     color: red;
-}
-
-a:hover {
-  background-color: #fa941d;
-  color: #fff;
 }
