@@ -1,61 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    width: 100%;
-    height: 100vh; 
-    overflow: hidden;
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-h1{   
-    font-family: "audiowide";
-    font-weight: 300;
-    color: #fa941d;
-    font-size: 3rem;
+h1 {
+  font-family: "audiowide";
+  font-weight: 300;
+  color: #fa941d;
+  font-size: 3rem;
 }
 
-a{
-    text-decoration: none;
-    color: #fa941d;
-    padding: 1rem 2rem;
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: "lato";
-    font-size: 2rem;
-    border: 2px solid #fa941d;
-    transition: background-color 0.3s, color 0.3s;
+a {
+  text-decoration: none;
+  color: #fa941d;
+  padding: 1rem 2rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "lato";
+  font-size: 2rem;
+  border: 2px solid #fa941d;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.naslov{
-    height: 10vh;
-    padding: 7rem 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.naslov {
+  height: 10vh;
+  padding: 5rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.gumbi{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    gap: 3rem;
-    margin: 0 20%;
+.gumbi {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 3rem;
+  margin: 0 20%;
 }
 
-i{
-    font-weight: 100;
-    font-size: 2rem;
+i {
+  font-weight: 100;
+  font-size: 2rem;
 }
 
-a:hover{
-    background-color: #fa941d;
-    color: #fff;
+a:hover {
+  background-color: #fa941d;
+  color: #fff;
+}
+
+.poglavje-main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.poglavje {
+  display: flex;
+  width: 60vw;
+  height: 70vh;
+  border: 2px solid orange;
+  flex-direction: column;
+}
+.h2 {
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  font-family: "lato";
+  color: orange;
+}
+.naloga {
+  font-size: 1rem;
 }
