@@ -1,8 +1,10 @@
 const btn = document.querySelector('.uredi');
 const overlay = document.querySelector('.overlay');
 const closeBtn = document.querySelector('.close');
-const checked = document.querySelectorAll('i');
-console.log(checked);
+const checked = document.querySelectorAll('label');
+const inputs = document.querySelectorAll('input');
+// const ja = document.querySelectorAll('i');
+
 let x;
 btn.addEventListener('click', e=>{
     overlay.classList.add('yes');
@@ -10,19 +12,14 @@ btn.addEventListener('click', e=>{
     e.preventDefault();
 });
 
-closeBtn.addEventListener('click', ()=>{
-    overlay.classList.remove('yes');
-});
-
-checked.forEach(check=>{
-  check.addEventListener('click', () =>{
-    console.log('323');
-  })
-})
+// closeBtn.addEventListener('click', ()=>{
+//     overlay.classList.remove('yes');
+// });
 
 // checked.forEach((check) => {
 //     check.addEventListener('click', () => {
-//       let y = check.classList.contains('fa-check');
+//       let y = check.classList.contains('green1');
+//       console.log(y);
 //       if (y === true) {
 //         check.classList.add('green');
 //       }
@@ -31,3 +28,17 @@ checked.forEach(check=>{
 //       }
 //     });
 //   });
+let j = 0;
+inputs.forEach(input=>{
+  input.addEventListener('click' , ()=>{
+    const china = input.nextSibling.nextSibling.firstChild;
+    if (j === 0) {
+      j++;
+      china.style.color = 'green';
+      console.log(china);
+    } else{
+      j--;
+      china.style.color = 'black';
+    }
+  })
+});
