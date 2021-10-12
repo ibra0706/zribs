@@ -137,12 +137,21 @@ h2{
     color: #fff;
 }
 
-
 .red{
     background: red;
     color: #fff;
 }
 
-input [type="radio"]{
-    background-image: url(../img/check-solid.svg);
+input{
+    display: none;
+}
+
+.skatla{
+    display: flex;
+}
+
+label{
+    width: 32px;
+    display: flex;
+    justify-content: center;
 }
