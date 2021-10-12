@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["status"] = 'd';
                             $_SESSION["mail"] = $mail;                            
                             
-                            header("location: welcome.php");
+                            header("location: ../html/izberiRazred.html");
                         } else{
                             $login_err = "Invalid mail or geslo.";
                         }
