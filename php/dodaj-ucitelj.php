@@ -42,16 +42,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($ime_err) && empty($priimek_err) && empty($mail_err) && empty($geslo_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO ucitelji (ime, priimek, mail, geslo) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO ucitelji (ime, priimek, mail, geslo, geslo_vidno) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssss", $par_ime, $par_priimek, $par_mail, $par_geslo);
+            mysqli_stmt_bind_param($stmt, "sssss", $par_ime, $par_priimek, $par_mail, $par_geslo, $par_geslo_vidno);
             
             // Set parameters
             $par_ime = $ime;
             $par_priimek = $priimek;
             $par_mail = $mail;
+            $par_geslo_vidno =  $geslo;
             $par_geslo =  password_hash($geslo, PASSWORD_DEFAULT);
             
             // Attempt to execute the prepared statement
