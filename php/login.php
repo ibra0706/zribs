@@ -44,6 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
+                            $_SESSION["status"] = 'd';
                             $_SESSION["mail"] = $mail;                            
                             
                             header("location: welcome.php");
@@ -52,7 +53,79 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
-                    $login_err = "Invalid mail or geslo.";
+                    mysqli_stmt_close($stmt);
+                    $sql = "SELECT id_ucitlja, mail, geslo FROM ucitelji WHERE mail = ?";
+        
+                    if($stmt = mysqli_prepare($link, $sql)){
+                        mysqli_stmt_bind_param($stmt, "s", $param_mail);
+                        
+                        $param_mail = $mail;
+                        
+                        if(mysqli_stmt_execute($stmt)){
+                            mysqli_stmt_store_result($stmt);
+                            
+                            if(mysqli_stmt_num_rows($stmt) == 1){                    
+                                mysqli_stmt_bind_result($stmt, $id, $mail, $hashed_password);
+                                if(mysqli_stmt_fetch($stmt)){
+                                    if(password_verify($geslo, $hashed_password)){
+                                        session_start();
+                                        
+                                        $_SESSION["loggedin"] = true;
+                                        $_SESSION["status"] = 'u';
+                                        $_SESSION["id"] = $id;
+                                        $_SESSION["mail"] = $mail;                            
+                                        
+                                        header("location: welcome.php");
+                                    } else{
+                                        $login_err = "Invalid mail or geslo.";
+                                    }
+                                }
+                            } else{
+                                $login_err = "Invalid mail or geslo.";
+                            }
+                        } else{
+                            echo "Oops! Something went wrong. Please try again later.";
+                        }
+
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        mysqli_stmt_close($stmt);
+                        $sql = "SELECT id_admin, mail, geslo FROM admin WHERE mail = ?";
+            
+                        if($stmt = mysqli_prepare($link, $sql)){
+                            mysqli_stmt_bind_param($stmt, "s", $param_mail);
+                            
+                            $param_mail = $mail;
+                            
+                            if(mysqli_stmt_execute($stmt)){
+                                mysqli_stmt_store_result($stmt);
+                                
+                                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                                    mysqli_stmt_bind_result($stmt, $id, $mail, $hashed_password);
+                                    if(mysqli_stmt_fetch($stmt)){
+                                        if(password_verify($geslo, $hashed_password)){
+                                            session_start();
+                                            
+                                            $_SESSION["loggedin"] = true;
+                                            $_SESSION["id"] = $id;
+                                            $_SESSION["status"] = 'a';
+                                            $_SESSION["mail"] = $mail;                            
+                                            
+                                            header("location: welcome.php");
+                                        } else{
+                                            $login_err = "Invalid mail or geslo.";
+                                        }
+                                    }
+                                } else{
+                                    $login_err = "Invalid mail or geslo.";
+                                }
+                            } else{
+                                echo "Oops! Something went wrong. Please try again later.";
+                            }
+
+                            mysqli_stmt_close($stmt);
+                        }
+                    }
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
