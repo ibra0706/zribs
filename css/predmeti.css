@@ -142,3 +142,7 @@ h2{
     background: red;
     color: #fff;
 }
+
+input [type="radio"]{
+    background-image: url(../img/check-solid.svg);
+}
