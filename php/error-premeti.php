@@ -16,8 +16,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5 mb-3">Neveljavna prosnja</h2>
-                    <div class="alert alert-danger">Upss, naredil si neveljavno prošnjo. Prosim pojdi <a href="predmeti.php" class="alert-link">nazaj</a> in poskusi ponovno.</div>
+                    <h2 class="mt-5 mb-3">Neveljavna prošnja</h2>
+                    <div class="alert alert-danger">Ups, naredil si neveljavno prošnjo. Prosim pojdi <a href="predmeti.php" class="alert-link">nazaj</a> in poskusi ponovno.</div>
                 </div>
             </div>        
         </div>

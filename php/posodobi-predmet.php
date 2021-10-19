@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$ime = $address = $salary = "";
-$ime_err = $address_err = $salary_err = "";
+$ime = $kratica = $letnik = "";
+$ime_err = $kratica_err = $letink_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -15,41 +15,41 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $input_ime = trim($_POST["ime"]);
     if(empty($input_ime)){
         $ime_err = "Please enter a ime.";
-    } elseif(!filter_var($input_ime, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $ime_err = "Please enter a valid ime.";
-    } else{
+    }else{
         $ime = $input_ime;
     }
     
-    // Validate address address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an address.";     
-    } else{
-        $address = $input_address;
+    // Validate kratica kratica
+    $input_kratica = trim($_POST["kratica"]);
+    if(empty($input_kratica)){
+        $kratica_err = "Please enter a kratica.";
+    }else if(strlen($input_kratica) !== 3){
+        $kratica_err = "kratica mora biti dolga 3 crke.";
+    }else{
+        $kratica = $input_kratica;
     }
     
-    // Validate salary
-    $input_salary = trim($_POST["salary"]);
-    if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";     
+    // Validate letnik
+    $inpiut_letnik = trim($_POST["letnik"]);
+    if(empty($inpiut_letnik)){
+        $letink_err = "Please enter the letnik amount.";     
     }else{
-        $salary = $input_salary;
+        $letnik = $inpiut_letnik;
     }
     
     // Check input errors before inserting in database
-    if(empty($ime_err) && empty($address_err) && empty($salary_err)){
+    if(empty($ime_err) && empty($kratica_err) && empty($letink_err)){
         // Prepare an update statement
         $sql = "UPDATE predmeti SET ime_predmeta=?, kratica=?, letnik=? WHERE id_predmet=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssii", $param_ime, $param_address, $param_salary, $param_id);
+            mysqli_stmt_bind_param($stmt, "ssii", $param_ime, $par_kratica, $par_letnik, $param_id);
             
             // Set parameters
             $param_ime = $ime;
-            $param_address = $address;
-            $param_salary = $salary;
+            $par_kratica = $kratica;
+            $par_letnik = $letnik;
             $param_id = $id;
             
             // Attempt to execute the prepared statement
@@ -94,8 +94,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     
                     // Retrieve individual field value
                     $ime = $row["ime_predmeta"];
-                    $address = $row["kratica"];
-                    $salary = $row["letnik"];
+                    $kratica = $row["kratica"];
+                    $letnik = $row["letnik"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error-predmeti.php");
@@ -138,27 +138,27 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Posodobi učitelja</h2>
+                    <h2 class="mt-5">Posodobi predmet</h2>
                     <!-- <p>Please edit the input values and submit to update the employee record.</p> -->
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                         <div class="form-group">
-                            <label>Ime</label>
+                            <label>Ime predmeta</label>
                             <input type="text" name="ime" class="form-control <?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
                             <span class="invalid-feedback"><?php echo $ime_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Priimek</label>
-                            <textarea name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>"><?php echo $address; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $address_err;?></span>
+                            <label>Kratica</label>
+                            <input type="text" name="kratica" class="form-control <?php echo (!empty($kratica_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $kratica; ?>"></input>
+                            <span class="invalid-feedback"><?php echo $kratica_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>mail</label>
-                            <input type="text" name="salary" class="form-control <?php echo (!empty($salary_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $salary; ?>">
-                            <span class="invalid-feedback"><?php echo $salary_err;?></span>
+                            <label>Letnik</label>
+                            <input type="number" min="1" max="4" name="letnik" class="form-control <?php echo (!empty($letink_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $letnik; ?>">
+                            <span class="invalid-feedback"><?php echo $letink_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Potrdi">
+                        <a href="predmeti.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        

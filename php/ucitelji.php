@@ -68,7 +68,7 @@
                                         echo "<th>Priimek</th>";
                                         echo "<th>Mail</th>";
                                         echo "<th>Geslo</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>Možnosti</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -80,9 +80,9 @@
                                         echo "<td>" . $row['mail'] . "</td>";
                                         echo "<td>" . $row['geslo_vidno'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="beri-ucitelj.php?id='. $row['id_ucitlja'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="posodobi-ucitelj.php?id='. $row['id_ucitlja'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="izbrisi-ucitelj.php?id='. $row['id_ucitlja'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="beri-ucitelj.php?id='. $row['id_ucitlja'] .'" class="mr-3" title="Poglej" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                            echo '<a href="posodobi-ucitelj.php?id='. $row['id_ucitlja'] .'" class="mr-3" title="Posodobi" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="izbrisi-ucitelj.php?id='. $row['id_ucitlja'] .'" title="Izbriši" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }

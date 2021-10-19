@@ -158,8 +158,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="invalid-feedback"><?php echo $salary_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Potrdi">
+                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        

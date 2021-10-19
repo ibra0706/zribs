@@ -68,7 +68,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">Poglej učitelja</h1>
+                    <h1 class="mt-5 mb-3">Poglej predmet</h1>
                     <div class="form-group">
                         <label>Ime predmeta</label>
                         <p><b><?php echo $row["ime_predmeta"]; ?></b></p>
@@ -81,7 +81,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Letnik</label>
                         <p><b><?php echo $row["letnik"]; ?></b></p>
                     </div>
-                    <p><a href="predmeti.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="predmeti.php" class="btn btn-primary">Nazaj</a></p>
                 </div>
             </div>        
         </div>

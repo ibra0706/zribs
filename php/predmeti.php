@@ -46,8 +46,8 @@
                                         echo "<th>#</th>";
                                         echo "<th>Ime predmeta</th>";
                                         echo "<th>Kratica</th>";
-                                        echo "<th>letnik</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>Letnik</th>";
+                                        echo "<th>Možnosti</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -58,9 +58,9 @@
                                         echo "<td>" . $row['kratica'] . "</td>";
                                         echo "<td>" . $row['letnik'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="beri-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="posodobi-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="izbrisi-predmet.php?id='. $row['id_predmet'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="beri-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Poglej" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                            echo '<a href="posodobi-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Posodobi" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="izbrisi-predmet.php?id='. $row['id_predmet'] .'" title="Izbriši" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }

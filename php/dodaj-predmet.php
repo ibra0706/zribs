@@ -99,11 +99,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Letnik</label>
-                            <input type="text" name="letnik" class="form-control <?php echo (!empty($letnik_err)) ? 'is-invalid' : ''; ?>"><?php echo $letnik; ?>
+                            <input type="number" min="1" max="4" name="letnik" class="form-control <?php echo (!empty($letnik_err)) ? 'is-invalid' : ''; ?>"><?php echo $letnik; ?>
                             <span class="invalid-feedback"><?php echo $letnik_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Dodaj">
-                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Prekliči</a>
+                        <a href="predmeti.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        
