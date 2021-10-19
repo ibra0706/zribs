@@ -16,6 +16,26 @@
         table tr td:last-child{
             width: 120px;
         }
+        .btn{
+            background: #fa941d;
+            border: 1px #fa941d solid;
+        }
+        .btn:hover,
+        .btn:link,
+        .btn:focus,
+        .btn:active,
+        .btn:focus-visible{
+            background: #E34D10 !important;
+            border: 1px solid #E34D10 !important;
+            box-shadow: none;
+        }
+        .btn:focus{
+            outline: 2px #fa941d solid !important;
+            
+        }
+        .alert{
+            background: #fa941daa;
+        }
     </style>
     <script>
         $(document).ready(function(){
