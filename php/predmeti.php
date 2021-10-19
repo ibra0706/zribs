@@ -44,10 +44,9 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Ime</th>";
-                                        echo "<th>Priimek</th>";
-                                        echo "<th>Mail</th>";
-                                        echo "<th>Geslo</th>";
+                                        echo "<th>Ime predmeta</th>";
+                                        echo "<th>Kratica</th>";
+                                        echo "<th>letnik</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -57,10 +56,11 @@
                                         echo "<td>" . $row['id_predmet'] . "</td>";
                                         echo "<td>" . $row['ime_predmeta'] . "</td>";
                                         echo "<td>" . $row['kratica'] . "</td>";
+                                        echo "<td>" . $row['letnik'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="beri-ucitelj.php?id='. $row['id_predmet'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="posodobi-ucitelj.php?id='. $row['id_predmet'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="izbrisi-ucitelj.php?id='. $row['id_predmet'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="beri-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                            echo '<a href="posodobi-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="izbrisi-predmet.php?id='. $row['id_predmet'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }

@@ -29,7 +29,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 $salary = $row["letnik"];
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
-                header("location: error.php");
+                header("location: error-predmeti.php");
                 exit();
             }
             
@@ -70,18 +70,18 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 <div class="col-md-12">
                     <h1 class="mt-5 mb-3">Poglej učitelja</h1>
                     <div class="form-group">
-                        <label>Ime</label>
-                        <p><b><?php echo $row["ime"]; ?></b></p>
+                        <label>Ime predmeta</label>
+                        <p><b><?php echo $row["ime_predmeta"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Priimek</label>
-                        <p><b><?php echo $row["priimek"]; ?></b></p>
+                        <label>Kratica</label>
+                        <p><b><?php echo $row["kratica"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Mail</label>
-                        <p><b><?php echo $row["mail"]; ?></b></p>
+                        <label>Letnik</label>
+                        <p><b><?php echo $row["letnik"]; ?></b></p>
                     </div>
-                    <p><a href="ucitelji.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="predmeti.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>

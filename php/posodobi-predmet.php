@@ -3,22 +3,22 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $address = $salary = "";
-$name_err = $address_err = $salary_err = "";
+$ime = $address = $salary = "";
+$ime_err = $address_err = $salary_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Get hidden input value
     $id = $_POST["id"];
     
-    // Validate name
-    $input_name = trim($_POST["name"]);
-    if(empty($input_name)){
-        $name_err = "Please enter a name.";
-    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+    // Validate ime
+    $input_ime = trim($_POST["ime"]);
+    if(empty($input_ime)){
+        $ime_err = "Please enter a ime.";
+    } elseif(!filter_var($input_ime, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $ime_err = "Please enter a valid ime.";
     } else{
-        $name = $input_name;
+        $ime = $input_ime;
     }
     
     // Validate address address
@@ -38,16 +38,16 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     }
     
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($salary_err)){
+    if(empty($ime_err) && empty($address_err) && empty($salary_err)){
         // Prepare an update statement
-        $sql = "UPDATE ucitelji SET ime=?, priimek=?, mail=? WHERE id_ucitlja=?";
+        $sql = "UPDATE predmeti SET ime_predmeta=?, kratica=?, letnik=? WHERE id_predmet=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssi", $param_name, $param_address, $param_salary, $param_id);
+            mysqli_stmt_bind_param($stmt, "ssii", $param_ime, $param_address, $param_salary, $param_id);
             
             // Set parameters
-            $param_name = $name;
+            $param_ime = $ime;
             $param_address = $address;
             $param_salary = $salary;
             $param_id = $id;
@@ -55,7 +55,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
-                header("location: ucitelji.php");
+                header("location: predmeti.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -75,7 +75,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id =  trim($_GET["id"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM ucitelji WHERE id_ucitlja = ?";
+        $sql = "SELECT * FROM predmeti WHERE id_predmet = ?";
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -93,12 +93,12 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     
                     // Retrieve individual field value
-                    $name = $row["ime"];
-                    $address = $row["priimek"];
-                    $salary = $row["mail"];
+                    $ime = $row["ime_predmeta"];
+                    $address = $row["kratica"];
+                    $salary = $row["letnik"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
-                    header("location: error.php");
+                    header("location: error-predmeti.php");
                     exit();
                 }
                 
@@ -114,7 +114,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         mysqli_close($link);
     }  else{
         // URL doesn't contain id parameter. Redirect to error page
-        header("location: error.php");
+        header("location: error-predmeti.php");
         exit();
     }
 }
@@ -143,8 +143,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                         <div class="form-group">
                             <label>Ime</label>
-                            <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
-                            <span class="invalid-feedback"><?php echo $name_err;?></span>
+                            <input type="text" name="ime" class="form-control <?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
+                            <span class="invalid-feedback"><?php echo $ime_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Priimek</label>

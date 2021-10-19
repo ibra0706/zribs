@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$ime_predmeta = $kratica = $letnik;
-$ime_predmeta_err = $kratica_err = $letnik_err;
+$ime_predmeta = $kratica = $letnik = "";
+$ime_predmeta_err = $kratica_err = $letnik_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_kratica = trim($_POST["kratica"]);
     if(empty($input_kratica)){
         $kratica_err = "Please enter a kratica.";
-    }else if($input_kratica.lenght()!=3){
+    }else if(strlen($input_kratica) !== 3){
         $kratica_err = "kratica mora biti dolga 3 crke.";
     }else{
         $kratica = $input_kratica;
@@ -36,11 +36,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($ime_predmeta_err) && empty($kratica_err) && empty($letnik_err) && empty($geslo_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO predmeti (ime_premeta, kratica, letnik) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO predmeti (ime_predmeta, kratica, letnik) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $par_ime_predmeta, $par_kratica, $par_letnik);
+            mysqli_stmt_bind_param($stmt, "ssi", $par_ime_predmeta, $par_kratica, $par_letnik);
             
             // Set parameters
             $par_ime_predmeta = $ime_predmeta;
@@ -50,14 +50,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: predemti.php");
+                header("location: predmeti.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
-         
-        // Close statement
+        
+        // // Close statement
         mysqli_stmt_close($stmt);
     }
     
@@ -101,11 +101,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <label>Letnik</label>
                             <input type="text" name="letnik" class="form-control <?php echo (!empty($letnik_err)) ? 'is-invalid' : ''; ?>"><?php echo $letnik; ?>
                             <span class="invalid-feedback"><?php echo $letnik_err;?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Geslo</label>
-                            <input type="text" name="geslo" class="form-control <?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $geslo; ?>">
-                            <span class="invalid-feedback"><?php echo $geslo_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Dodaj">
                         <a href="ucitelji.php" class="btn btn-secondary ml-2">Prekliči</a>
