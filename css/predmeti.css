@@ -138,3 +138,11 @@ input[type="checkbox"]{
   width: 32px;
   height: 32px;
 }
+
+input[type="submit"]{
+    border: none;
+    background: #fa941d;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
