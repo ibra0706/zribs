@@ -1,3 +1,4 @@
+
 <?php
 // Include config file
 require_once "config.php";
@@ -158,7 +159,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>        
