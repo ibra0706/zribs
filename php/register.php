@@ -126,25 +126,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="naDva"> 
                 <div>
-                    <input type="text" name="ime" class="form-control<?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
+                    <input type="text" name="ime" placeholder="Ime" class="form-control<?php echo (!empty($ime_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $ime; ?>">
                     <span class="invalid-feedback"><?php echo $ime_err; ?></span>
                 </div>
 
                 <div>
-                    <input type="text" name="priimek" class="form-control<?php echo (!empty($priimek_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priimek; ?>">
+                    <input type="text" name="priimek" placeholder="Priimek" class="form-control<?php echo (!empty($priimek_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $priimek; ?>">
                     <span class="invalid-feedback"><?php echo $priimek_err; ?></span>
                 </div> 
             </div>
             <div>
-                <input type="text" name="mail"  class="form-control<?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mail; ?>">
+                <input type="text" name="mail" placeholder="Mail"  class="form-control<?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mail; ?>">
                 <span class="invalid-feedback"><?php echo $mail_err; ?></span>
             </div>
             <div>
-                <input type="password" name="geslo"  class="form-control<?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $geslo; ?>">
+                <input type="password" name="geslo" placeholder="Geslo"  class="form-control<?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $geslo; ?>">
                 <span class="invalid-feedback"><?php echo $geslo_err; ?></span>
             </div>
             <div>
-                <input type="password" name="potrdi_geslo" class="form-control <?php echo (!empty($potrdi_geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $potrdi_geslo; ?>">
+                <input type="password" name="potrdi_geslo" placeholder="Potrdi geslo" class="form-control <?php echo (!empty($potrdi_geslo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $potrdi_geslo; ?>">
                 <span class="invalid-feedback"><?php echo $potrdi_geslo_err; ?></span>
             </div>
             <div >

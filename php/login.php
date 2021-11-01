@@ -2,7 +2,7 @@
 session_start();
  
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ../html/izberiRazred.html");
+    header("location: ./mainPage.php");
     exit;
 }
  
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["status"] = 'd';
                             $_SESSION["mail"] = $mail;                            
                             
-                            header("location: ../html/izberiRazred.html");
+                            header("location: ./mainPage.php");
                         } else{
                             $login_err = "Invalid mail or geslo.";
                         }
@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         $_SESSION["id"] = $id;
                                         $_SESSION["mail"] = $mail;                            
                                         
-                                        header("location: welcome.php");
+                                        header("location: ./mainPage.php");
                                     } else{
                                         $login_err = "Invalid mail or geslo.";
                                     }
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             $_SESSION["status"] = 'a';
                                             $_SESSION["mail"] = $mail;                            
                                             
-                                            header("location: welcome.php");
+                                            header("location: ./mainPage.php");
                                         } else{
                                             $login_err = "Invalid mail or geslo.";
                                         }
@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <h1>Prijava</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
-                <input type="text" name="mail" placeholder="mail" <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?> 
+                <input type="text" name="mail" placeholder="Mail" <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?> 
                 value="<?php echo $mail; ?>">
                 <span class="invalid-feedback"><?php echo $mail_err; ?></span>
             </div>    

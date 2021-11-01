@@ -10,6 +10,7 @@
 <body>
     <header>
         <h1><a href="mainPage.php"> ZRIBS</a></h1>
+        <a href="logout.php" class="logout">Odjavi se</a>
     </header>
 </body>
 </html>

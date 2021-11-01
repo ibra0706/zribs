@@ -3,10 +3,19 @@ header {
     width: 100%;
     height: 10vh;
     align-items: center;
-    padding-left: 2rem;
+    justify-content: space-between;
+    padding: 0 2rem;
 }
 
 h1 a{
     text-decoration: none;
     color: black;
+}
+
+.logout{
+    text-decoration: none;
+    color: #fff;
+    background: #fa941d;
+    padding: 0.2rem 0.3rem;
+    border-radius: 2px;
 }
