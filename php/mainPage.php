@@ -58,10 +58,7 @@ mysqli_close($link);
         <div class="urediPredmete">
             <h2>Uredi predmete</h2>
             <div class="predmeti">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <iframe src="urediPredmete.php" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
     </div>

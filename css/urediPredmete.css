@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+     width: 80%;
+    /* height: 100%; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+}
+
+.predmet {
+    display: block;
+    background-color: #fa941d;
+    color: white;
+    padding: 1rem;
+    width: 20ch;
+    text-decoration: none;
+    /* font-weight: bold; */
+    font-size: 1.2rem;
+    font-family: 'Lato';
+    letter-spacing: 0.2rem;
+}
+
+.predmetDodaj{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
