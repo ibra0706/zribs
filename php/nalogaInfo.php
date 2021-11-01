@@ -1,19 +1,19 @@
 <?php
 // Include config file
 require_once "config.php";
-$id = $_GET['id'];
-echo '<script>console.log(' . $id . ')</script>';
+$id = $_GET['idnalog'];
 // Attempt select query execution
-$sql = "SELECT * FROM naloge WHERE id_predmet = $id";
+$sql = "SELECT * FROM naloge WHERE id_naloge = $id";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                
                     echo '<div class="naloga">';
-                    echo '<a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a>';
+                    echo $row['naziv'] . '<br>';
+                    echo $row['navodila'] . '<br>';
+                    echo $row['datum_rok'] . '<br>';
                     echo '</div>';
             }
-            echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
         // Free result set
         mysqli_free_result($result);
     } else{
