@@ -1,40 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
 
-h1{
-    font-family: Audiowide;
-    font-size: 3rem;
-    color: #FA941D;
+h1 {
+  font-family: Audiowide;
+  font-size: 3rem;
+  color: #fa941d;
 }
 
-ul{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 80%;
+ul {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
 }
 
-ul li{
-    list-style: none;
-    height: 20%;
-    border: #FA941D solid 2px;
-    font-size: 3rem;
-    font-family: Lato;
-    color: #FA941D;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5rem;
+ul li {
+  list-style: none;
+  height: 20%;
+  border: #fa941d solid 2px;
+  font-size: 3rem;
+  font-family: Lato;
+  color: #fa941d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
 }
-

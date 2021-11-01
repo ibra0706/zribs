@@ -1,137 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    width: 100%;
-    height: 100vh; 
-    overflow: hidden;
-    font-family: Lato;
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Lato;
 }
 
-h1{   
-    font-family: "audiowide";
-    font-weight: 300;
-    color: #fa941d;
-    font-size: 3rem;
+h1 {
+  font-family: "audiowide";
+  font-weight: 300;
+  color: #fa941d;
+  font-size: 3rem;
 }
 
-a{
-    text-decoration: none;
-    color: #fff;
-    background: #fa941d;
-    padding: 1rem 2rem;
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: "lato";
-    font-size: 2rem;
-    border: 2px solid #fa941d;
-    transition: background-color 0.3s, color 0.3s;
+a {
+  text-decoration: none;
+  color: #fff;
+  background: #fa941d;
+  padding: 1rem 2rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "lato";
+  font-size: 2rem;
+  border: 2px solid #fa941d;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.naslov{
-    height: 10vh;
-    padding: 7rem 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.naslov {
+  height: 10vh;
+  padding: 7rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.gumba{
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    gap: 2rem;
-    margin: 3rem 40% 0 40%;
+.gumba {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  gap: 2rem;
+  margin: 3rem 40% 0 40%;
 }
 
-i{
-    font-weight: 100;
-    font-size: 2rem;
+i {
+  font-weight: 100;
+  font-size: 2rem;
 }
 
-a:hover{
-    background-color: #fa941d;
-    color: #fff;
+a:hover {
+  background-color: #fa941d;
+  color: #fff;
 }
 
-.overlay{
-    display: none;
+.overlay {
+  display: none;
 }
 
-.yes{
-    display: block;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.yes {
+  display: block;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.box{
-    width: 40%;
-    height: 60%;
-    background: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    padding: 3rem 0;
+.box {
+  width: 40%;
+  height: 60%;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  padding: 3rem 0;
 }
 
-h2{
-    font-weight: 100;
+h2 {
+  font-weight: 100;
 }
-.header{
-    width: 80%;
-    margin: 0 10%;
-    height: 15%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.close{
-    cursor: pointer;
+.header {
+  width: 80%;
+  margin: 0 10%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.icons{
-    display: flex;
-    justify-content: space-between;
-    width: 15%;
+.close {
+  cursor: pointer;
 }
 
-.predmeti{
-    border: 2px #fa941d solid;
-    width: 80%;
-    margin: 0 10%;
-    padding: 1rem;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
 }
 
-form{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.predmeti {
+  border: 2px #fa941d solid;
+  width: 80%;
+  margin: 0 10%;
+  padding: 1rem;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.predmet{
-    display: flex;
-    justify-content: space-between;
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-input[type="checkbox"]{
+.predmet {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -139,10 +139,10 @@ input[type="checkbox"]{
   height: 32px;
 }
 
-input[type="submit"]{
-    border: none;
-    background: #fa941d;
-    color: #fff;
-    font-size: 1rem;
-    padding: 0.5rem 0;
+input[type="submit"] {
+  border: none;
+  background: #fa941d;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0;
 }

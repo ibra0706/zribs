@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.outer-main {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.main {
+  display: flex;
+  height: 80vh;
+  width: 70%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.main2 {
+  margin-top: 1.5rem;
+  display: flex;
+  width: 30%;
+  height: 50vh;
+  justify-content: center;
+}
+
+.urediPredmete {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  background-color: white;
+  border: 2px solid orange;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.mojiPredmeti,
+.vsiPredmeti {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 35vh;
+  width: 100%;
+  margin-left: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border: 2px solid orange;
+}
+
+.predmeti {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 20vh;
+}
