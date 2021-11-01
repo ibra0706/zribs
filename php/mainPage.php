@@ -8,9 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Zribs</h1>
-    </div>
+    <?php include "header.php" ?>
     <div class="outer-main">
     <div class="main">
         <div class="mojiPredmeti">
