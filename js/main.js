@@ -1,15 +1,15 @@
-const btn = document.querySelector('.uredi');
-const overlay = document.querySelector('.overlay');
-const closeBtn = document.querySelector('.close');
-const checked = document.querySelectorAll('label');
-const inputs = document.querySelectorAll('input');
+const btn = document.querySelector(".uredi");
+const overlay = document.querySelector(".overlay");
+const closeBtn = document.querySelector(".close");
+const checked = document.querySelectorAll("label");
+const inputs = document.querySelectorAll("input");
 // const ja = document.querySelectorAll('i');
 
 let x;
-btn.addEventListener('click', e=>{
-    overlay.classList.add('yes');
-    x = overlay.classList.contains('yes');
-    e.preventDefault();
+btn.addEventListener("click", (e) => {
+  overlay.classList.add("yes");
+  x = overlay.classList.contains("yes");
+  e.preventDefault();
 });
 
 // closeBtn.addEventListener('click', ()=>{
@@ -29,16 +29,16 @@ btn.addEventListener('click', e=>{
 //     });
 //   });
 let j = 0;
-inputs.forEach(input=>{
-  input.addEventListener('click' , ()=>{
+inputs.forEach((input) => {
+  input.addEventListener("click", () => {
     const china = input.nextSibling.nextSibling.firstChild;
     if (j === 0) {
       j++;
-      china.style.color = 'green';
+      china.style.color = "green";
       console.log(china);
-    } else{
+    } else {
       j--;
-      china.style.color = 'black';
+      china.style.color = "black";
     }
-  })
+  });
 });
