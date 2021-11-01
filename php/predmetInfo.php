@@ -50,7 +50,13 @@
         mysqli_close($link);
         // echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
         ?>
-        <iframe src="novaNaloga.php?idpred=3" width="1000px" height="1000px" frameborder="0"></iframe>
+        <?php
+        session_start();
+        $status = $_SESSION['status'];
+        if($status === 'u'){
+            echo '<iframe src="novaNaloga.php?idpred=3" width="1000px" height="1000px" frameborder="0"></iframe>';
+        }
+        ?>
     </main>
 </body>
 </html>
