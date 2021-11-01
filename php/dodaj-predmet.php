@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate letnik
     $input_letnik = trim($_POST["letnik"]);
     if(empty($input_letnik)){
-        $letnik_err = "Please enter an letnik.";     
+        $letnik_err = "Please enter an letnik.";     // Adrian was heres
     } else{
         $letnik = $input_letnik;
     }

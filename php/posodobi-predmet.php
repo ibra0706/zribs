@@ -133,6 +133,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         }
         .btn-primary{
             background: #fa941d !important;
+            border: none;
         }
     </style>
 </head>

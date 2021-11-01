@@ -63,6 +63,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         }
         .btn{
             background: #fa941d !important;
+            border: none;
         }
     </style>
 </head>

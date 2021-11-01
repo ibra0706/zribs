@@ -1,6 +1,7 @@
 const btn = document.querySelector(".uredi");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close");
+// Adrian was here
 const checked = document.querySelectorAll("label");
 const inputs = document.querySelectorAll("input");
 // const ja = document.querySelectorAll('i');

@@ -18,6 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $priimek_err = "Vpisi priimek.";
     } else{
         $priimek = trim($_POST["ime"]);
+        // Adrian was here
     }
 
     if(empty(trim($_POST["mail"]))){

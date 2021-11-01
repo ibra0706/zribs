@@ -21,7 +21,7 @@
                 <h2>Seznam predmetov</h2>
             </div>
             <div class="predmeti">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <form action="<?php /* Adrian was here */ echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div class="predmet">
                         MUT
                         <div class="skatla">

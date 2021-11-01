@@ -10,6 +10,7 @@ if($result = mysqli_query($link, $sql)){
             while($row = mysqli_fetch_array($result)){              
                     echo '<div class="naloga">';
                     echo '<a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a>';
+                    // Adrian was here
                     echo '</div>';
             }
         mysqli_free_result($result);

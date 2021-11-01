@@ -24,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_navodila = trim($_POST["navodila"]);
     if(empty($input_navodila)){
         $navodila_err = "Please enter a navodila.";
+        // Adrian was here
     }else{
         $navodila = $input_navodila;
     }

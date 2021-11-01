@@ -2,7 +2,7 @@
 session_start();
  
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: ../html/izberiRazred.html");
     exit;
 }
  
@@ -17,6 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $mail_err = "Please enter mail.";
     } else{
         $mail = trim($_POST["mail"]);
+        // Adrian was here
     }
     
     if(empty(trim($_POST["geslo"]))){

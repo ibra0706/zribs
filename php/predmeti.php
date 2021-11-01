@@ -84,7 +84,7 @@
                                         echo "</td>";
                                     echo "</tr>";
                                 }
-                                echo "</tbody>";                            
+                                echo "</tbody>";                 // Adrian was here           
                             echo "</table>";
                             // Free result set
                             mysqli_free_result($result);
