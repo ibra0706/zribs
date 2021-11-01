@@ -94,6 +94,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             width: 600px;
             margin: 0 auto;
         }
+        .btn-primary{
+            background: #fa941d;
+            border: 1px #fa941d solid;
+        }
+        .btn-primary:hover,
+        .btn-primary:link,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary:focus-visible{
+            background: #E34D10 !important;
+            border: 1px solid #E34D10 !important;
+            box-shadow: none;
+        }
+        .btn-primary:focus{
+            outline: 2px #fa941d solid !important;
+            
+        }
     </style>
 </head>
 <body>
