@@ -1,15 +1,13 @@
 <?php
 // Include config file
 require_once "config.php";
- session_start();
+session_start();
 // Define variables and initialize with empty values
 $ime_naloge = $navodila = $datum_rok = "";
 $ime_naloge_err = $navodila_err = $datum_rok_err = "";
 $id_ucitelj = $_SESSION['id'];
-$id_predmet = $_GET['idpred'];
-$_SESSION['idpr'] = $_GET['idpred'];
+if($_SERVER["REQUEST_METHOD"] == "GET"){$id_predmet = $_GET['idpred'];}
 // $id_predmet = 3;
-echo '<script> console.log("'. $id_predmet. '")</script>';
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_predmet = trim($_POST["id_predmet"]);
@@ -54,13 +52,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $par_datum_rok = $datum_rok;
             $par_id_predmet = $id_predmet;
             $par_id_ucitelj = $id_ucitelj;
-
-            echo '<script> console.log("' . $par_navodila . '")</script>';
-            echo '<script> console.log("' . $ime_naloge  . '")</script>';
-            echo '<script> console.log(' . $par_datum_oddaje . ')</script>';
-            echo '<script> console.log("' . $par_datum_rok  . '")</script>';
-            echo '<script> console.log("' . $par_id_predmet . '")</script>';
-            echo '<script> console.log("' . $par_id_ucitelj . '") </script>';
             // sleep(3);
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -76,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // // Close statement
         mysqli_stmt_close($stmt);
-    }else{header("location: novaNaloga.php?idpred=". $id_predmet);}
+    }//else{header("location: novaNaloga.php?idpred=". $id_predmet);}
     
     // Close connection
     mysqli_close($link);
@@ -111,12 +102,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Navodila</label>
-                            <textarea type="text" name="navodila" class="form-control <?php echo (!empty($navodila_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $navodila; ?>"></textarea>
+                            <textarea type="text" name="navodila" class="form-control <?php echo (!empty($navodila_err)) ? 'is-invalid' : ''; ?>"><?php echo $navodila; ?></textarea>
                             <span class="invalid-feedback"><?php echo $navodila_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Datum</label>
-                            <input type="date" name="datum_rok" class="form-control <?php //echo (!empty($datum_rok_err)) ? 'is-invalid' : ''; ?>"><?php //echo $datum_rok; ?>
+                            <input type="date" name="datum_rok" class="form-control <?php echo (!empty($datum_rok_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $datum_rok; ?>">
                             <span class="invalid-feedback"><?php echo $datum_rok_err;?></span>
                         </div>
                         <input type="number" hidden name="id_predmet" value="<?php echo $id_predmet; ?>">
