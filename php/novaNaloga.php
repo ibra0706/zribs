@@ -12,7 +12,7 @@ $_SESSION['idpr'] = $_GET['idpred'];
 echo '<script> console.log("'. $id_predmet. '")</script>';
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // $id_predmet = trim($_POST["id_predmet"]);
+    $id_predmet = trim($_POST["id_predmet"]);
 
 
     // Validate ime_naloge
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $ime_naloge = $ime_naloge;
             $par_datum_oddaje = date('Y-m-d');
             $par_datum_rok = $datum_rok;
-            $par_id_predmet = $_SESSION['idpr'];
+            $par_id_predmet = $id_predmet;
             $par_id_ucitelj = $id_ucitelj;
 
             echo '<script> console.log("' . $par_navodila . '")</script>';
@@ -65,11 +65,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: mainPage.php");
+                header("location: predmetInfo.php?id=" . $id_predmet);
                 exit();
             } else{
-                $_GET['id_pred'] = $id_predmet;
-                header("location: novaNaloga.php?idpred=". $id_predmet);
+                // $_GET['id_pred'] = $id_predmet;
+                // header("location: novaNaloga.php?idpred=". $id_predmet);
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="date" name="datum_rok" class="form-control <?php //echo (!empty($datum_rok_err)) ? 'is-invalid' : ''; ?>"><?php //echo $datum_rok; ?>
                             <span class="invalid-feedback"><?php echo $datum_rok_err;?></span>
                         </div>
-                        <!-- <input type="number" name="id_predmet" value="<?php $_GET['idpred']?>"> -->
+                        <input type="number" hidden name="id_predmet" value="<?php echo $id_predmet; ?>">
                         <input type="submit" class="btn btn-primary" value="Dodaj">
                         <a href="predmeti.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>

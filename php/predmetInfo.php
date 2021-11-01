@@ -7,14 +7,11 @@ echo '<script>console.log(' . $id . ')</script>';
 $sql = "SELECT * FROM naloge WHERE id_predmet = $id";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_array($result)){
-               
+            while($row = mysqli_fetch_array($result)){              
                     echo '<div class="naloga">';
                     echo '<a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a>';
                     echo '</div>';
             }
-            echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
-        // Free result set
         mysqli_free_result($result);
     } else{
         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -25,6 +22,7 @@ if($result = mysqli_query($link, $sql)){
 
 // Close connection
 mysqli_close($link);
+echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
 ?>
 
 <!DOCTYPE html>
