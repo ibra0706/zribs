@@ -45,6 +45,14 @@
             width: 100%;
             overflow: hidden;
         }
+        .flex{
+            display: flex;
+            justify-content: space-between;
+        }
+        .red{
+            color: red;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +66,7 @@ if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                     echo '<div class="naloga">';
-                    echo '<h1>'.$row['naziv'].'</h1>' . '<br>';
+                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<h3 class="red" onClick="goBack()">X</h3>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                     echo '<iframe src="./nalozi.php" title="nalozi nalogo"></iframe>';
@@ -76,5 +84,11 @@ if($result = mysqli_query($link, $sql)){
 // Close connection
 mysqli_close($link);
 ?>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </body>
 </html>
