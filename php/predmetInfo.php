@@ -55,7 +55,6 @@
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
-        mysqli_close($link);
         // echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
         ?>
     </main>

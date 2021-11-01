@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mainPage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">   
     <title>Document</title>
+    <style>
+        *{
+            font-family: Lato;
+        }
+    </style>
 </head>
 <body>
     <?php include "header.php" ?>
@@ -38,12 +46,12 @@ if($result = mysqli_query($link, $sql)){
 }
 
 // Close connection
-mysqli_close($link);
+// mysqli_close($link);
 ?>
             </div>
     </div>
         <div class="vsiPredmeti">
-        <h2>Vsi predmeti</h2>
+        <h2>Vsi ucitelji</h2>
         <div class="predmeti">
         <?php
 // Include config file
@@ -55,7 +63,7 @@ if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                     echo '<h3 href="predmetInfo.php?id='. $row['id_ucitlja'] .'">';
-                    echo $row['ime'];
+                    echo $row['ime'] .'   ' . $row['priimek'];
                     echo '</h3> <br>';
             }
         // Free result set
