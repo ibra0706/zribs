@@ -10,8 +10,9 @@
 <body>
     <?php include "header.php" ?>
     <main>
-        <h2>
+        
             <?php
+            echo '<h2>';
             require_once "config.php";
             $id = $_GET['id'];
             $sql = "SELECT * FROM predmeti WHERE id_predmet = $id";
@@ -21,17 +22,24 @@
                     echo $row['ime_predmeta'];
                     mysqli_free_result($result);
                 } else{
-                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    echo '<div class="alert alert-danger"><em>Ni še nalog.</em></div>';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-            ?>
-        </h2>
+            
+            echo '</h2>';
+        
+    
+        $status = $_SESSION['status'];
+        if($status === 'u'){
+            echo '<a class="neVemVec" href="novaNaloga.php?idpred=' . $id . '">Dodaj nalogo</a>';
+        }
+        ?>
         <?php
         require_once "config.php";
         $id = $_GET['id'];
-        echo '<script>console.log(' . $id . ')</script>';
+        // echo '<script>console.log(' . $id . ')</script>';
         $sql = "SELECT * FROM naloge WHERE id_predmet = $id";
         if($result = mysqli_query($link, $sql)){
             if(mysqli_num_rows($result) > 0){
@@ -42,20 +50,13 @@
                     }
                 mysqli_free_result($result);
             } else{
-                echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                echo '<div class="alert alert-danger"><em>Ni še nalog.</em></div>';
             }
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
         mysqli_close($link);
         // echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
-        ?>
-        <?php
-        session_start();
-        $status = $_SESSION['status'];
-        if($status === 'u'){
-            echo '<iframe src="novaNaloga.php?idpred=3" width="1000px" height="1000px" frameborder="0"></iframe>';
-        }
         ?>
     </main>
 </body>

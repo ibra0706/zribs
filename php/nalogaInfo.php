@@ -16,20 +16,19 @@
             box-sizing: border-box;
         }
         body{
-            background: #fa941d;
+            background: white;
             height: 100vh;
             width: 100vw;
             font-family: Lato;
         }
         .naloga{
-            background: #fff;
             width: 60%;
             height: 50%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            border-radius: 10px;
+            border: 2px solid #fa941d;
             padding: 1rem;
         }
         h2{
@@ -56,11 +55,11 @@
     </style>
 </head>
 <body>
+    <?php include "header.php" ?>
 <?php
-// Include config file
 require_once "config.php";
 $id = $_GET['idnalog'];
-// Attempt select query execution
+
 $sql = "SELECT * FROM naloge WHERE id_naloge = $id";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -72,7 +71,7 @@ if($result = mysqli_query($link, $sql)){
                     echo '<iframe src="./nalozi.php" title="nalozi nalogo"></iframe>';
                     echo '</div>';
             }
-        // Free result set
+
         mysqli_free_result($result);
     } else{
         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -81,7 +80,7 @@ if($result = mysqli_query($link, $sql)){
     echo "Oops! Something went wrong. Please try again later.";
 }
 
-// Close connection
+
 mysqli_close($link);
 ?>
 

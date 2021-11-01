@@ -17,7 +17,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $mail_err = "Please enter mail.";
     } else{
         $mail = trim($_POST["mail"]);
-        // Adrian was here
     }
     
     if(empty(trim($_POST["geslo"]))){
@@ -54,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
-                    mysqli_stmt_close($stmt);
+                    // mysqli_stmt_close($stmt);
                     $sql = "SELECT id_ucitlja, mail, geslo FROM ucitelji WHERE mail = ?";
         
                     if($stmt = mysqli_prepare($link, $sql)){
@@ -85,10 +84,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $login_err = "Invalid mail or geslo.";
                             }
                         } else{
-                            echo "Oops! Something went wrong. Please try again later.";
+                            echo "Prislo je od napake.";
                         }
 
-                        mysqli_stmt_close($stmt);
+                        // mysqli_stmt_close($stmt);
                     } else {
                         mysqli_stmt_close($stmt);
                         $sql = "SELECT id_admin, mail, geslo FROM admin WHERE mail = ?";
@@ -121,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     $login_err = "Invalid mail or geslo.";
                                 }
                             } else{
-                                echo "Oops! Something went wrong. Please try again later.";
+                                echo "Prislo je od napake.";
                             }
 
                             mysqli_stmt_close($stmt);
@@ -129,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     }
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Prislo je od napake.";
             }
 
             mysqli_stmt_close($stmt);
@@ -164,7 +163,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div>
                 <input type="submit"class="chinug" value="Prijava">
             </div>
-            <p class="napis">Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p class="napis">Še nimaš računa? <a href="register.php">Registriraj se</a>.</p>
         </form>
 </main>
 </body>

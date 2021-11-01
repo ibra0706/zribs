@@ -45,23 +45,34 @@ mysqli_close($link);
         <div class="vsiPredmeti">
         <h2>Vsi predmeti</h2>
         <div class="predmeti">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <?php
+// Include config file
+require_once "config.php";
+
+// Attempt select query execution
+$sql = "SELECT * FROM ucitelji";
+if($result = mysqli_query($link, $sql)){
+    if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                    echo '<h3 href="predmetInfo.php?id='. $row['id_ucitlja'] .'">';
+                    echo $row['ime'];
+                    echo '</h3> <br>';
+            }
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+    }
+} else{
+    echo "Oops! Something went wrong. Please try again later.";
+}
+
+// Close connection
+mysqli_close($link);
+?>
         </div>
         </div>
     </div>
-    <div class="main2">
-        <div class="urediPredmete">
-            <h2>Uredi predmete</h2>
-            <div class="predmeti">
-            <iframe src="urediPredmete.php" width="100%" height="100%" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-    </div>
+    
 </body>
 </html>
