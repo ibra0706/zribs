@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <h1>Prijava</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
-                <input type="text" name="mail" placeholder="mail" <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?> 
+                <input type="text" name="mail" placeholder="Mail" <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?> 
                 value="<?php echo $mail; ?>">
                 <span class="invalid-feedback"><?php echo $mail_err; ?></span>
             </div>    
