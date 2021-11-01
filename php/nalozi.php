@@ -1,8 +1,11 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+// require_once "config.php";
+// $id = $_SESSION['idnalog'];
 $predmet;
 $dijak;
 // $target_dir = "../uploads/".$predmet."/".$dijak."/";
+// $target_dir = "../uploads/".$id;
 $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
