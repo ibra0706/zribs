@@ -75,6 +75,13 @@ if($result = mysqli_query($link, $sql)){
 
 ?>
         </div>
+    </div>
+    <div class="main2">
+        <div class="urediPredmete">
+            <h2>Uredi predmete</h2>
+            <div class="predmeti">
+            <iframe src="urediPredmete.php" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
     </div>
