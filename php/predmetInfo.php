@@ -37,7 +37,7 @@
             if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){              
                             echo '<div class="naloga">';
-                            echo '<a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a>';
+                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a></div>';
                             echo '</div>';
                     }
                 mysqli_free_result($result);
@@ -50,7 +50,7 @@
         mysqli_close($link);
         echo '<a href="novaNaloga.php?idpred='. $id .'">Dodaj nalogo(samo ucitelji)</a>';
         ?>
-        <!-- <iframe src="novaNaloga.php?idpred=3" width="1000px" height="1000px" frameborder="0"></iframe> -->
+        <iframe src="novaNaloga.php?idpred=3" width="1000px" height="1000px" frameborder="0"></iframe>
     </main>
 </body>
 </html>
