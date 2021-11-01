@@ -131,6 +131,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             width: 600px;
             margin: 0 auto;
         }
+        .btn-primary{
+            background: #fa941d !important;
+        }
     </style>
 </head>
 <body>

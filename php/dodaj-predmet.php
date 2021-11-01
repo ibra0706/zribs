@@ -70,12 +70,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ustvari učitelja</title>
+    <title>Ustvari predmet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
             width: 600px;
             margin: 0 auto;
+        }
+        .btn-primary{
+            background: #fa941d;
+            border: 1px #fa941d solid;
+        }
+        .btn-primary:hover,
+        .btn-primary:link,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary:focus-visible{
+            background: #E34D10 !important;
+            border: 1px solid #E34D10 !important;
+            box-shadow: none;
+        }
+        .btn-primary:focus{
+            outline: 2px #fa941d solid !important;
+            
         }
     </style>
 </head>
@@ -99,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Letnik</label>
-                            <input type="number" min="1" max="4" name="letnik" class="form-control <?php echo (!empty($letnik_err)) ? 'is-invalid' : ''; ?>"><?php echo $letnik; ?>
+                            <input type="number" min="1" max="4" name="letnik" class="form-control <?php //echo (!empty($letnik_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $letnik; ?>">
                             <span class="invalid-feedback"><?php echo $letnik_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Dodaj">
