@@ -70,7 +70,7 @@ if ($uploadOk == 0) {
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
   Izberi datoteko, ki jo boš naložil:
-  <label for="fileToUpload" class="btn">Select Image</label>
+  <label for="fileToUpload" class="btn">Izberi datoteko</label>
   <input type="file" name="fileToUpload" id="fileToUpload" style="visibility:hidden;">
   <input type="submit" value="Naloži" name="submit" class="btn">
 </form>
