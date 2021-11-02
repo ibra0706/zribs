@@ -11,7 +11,8 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  font-family: Lato;
+  font-family: "Lato";
+    font-size: 1.2rem;
 }
 
 h1 {

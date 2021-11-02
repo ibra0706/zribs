@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div >
                 <input type="submit"class="chinug" value="Registriraj se">
             </div>
-            <p class="napis">Already have an account? <a href="login.php">Login here</a>.</p>
+            <p class="napis">Že imaš račun? <a href="login.php">Prijavi se</a>.</p>
         </form>
 </main>
 </body>

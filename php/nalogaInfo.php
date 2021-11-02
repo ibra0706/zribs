@@ -16,20 +16,19 @@
             box-sizing: border-box;
         }
         body{
-            background: #fa941d;
+            background: white;
             height: 100vh;
             width: 100vw;
             font-family: Lato;
         }
         .naloga{
-            background: #fff;
             width: 60%;
             height: 50%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            border-radius: 10px;
+            border: 2px solid #fa941d;
             padding: 1rem;
         }
         h2{
@@ -56,11 +55,11 @@
     </style>
 </head>
 <body>
+    <?php include "header.php" ?>
 <?php
-// Include config file
 require_once "config.php";
 $id = $_GET['idnalog'];
-// Attempt select query execution
+
 $sql = "SELECT * FROM naloge WHERE id_naloge = $id";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -69,15 +68,11 @@ if($result = mysqli_query($link, $sql)){
                     echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<h3 class="red" onClick="goBack()">X</h3>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
-                    echo '<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-                    Izberi datoteko, ki jo boš naložil:
-                    <label for="fileToUpload" class="btn">Izberi datoteko</label>
-                    <input type="file" name="fileToUpload" id="fileToUpload" style="visibility:hidden;">
-                    <input type="submit" value="Naloži" name="submit" class="btn">
-                  </form>';
+                    echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
+                    echo '<iframe src="./nalozi.php" title="nalozi nalogo"></iframe>';
                     echo '</div>';
             }
-        // Free result set
+
         mysqli_free_result($result);
     } else{
         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -86,7 +81,7 @@ if($result = mysqli_query($link, $sql)){
     echo "Oops! Something went wrong. Please try again later.";
 }
 
-// Close connection
+
 mysqli_close($link);
 ?>
 <?php

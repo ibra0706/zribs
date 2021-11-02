@@ -10,6 +10,13 @@
 <body>
     <header>
         <h1><a href="mainPage.php"> ZRIBS</a></h1>
+        <?php
+        session_start();
+        $status = $_SESSION['status'];
+        if($status === 'a'){
+            echo '<a href="admin.php" class="logout">ADMIN</a>';
+        }
+        ?>
         <a href="logout.php" class="logout">Odjavi se</a>
     </header>
 </body>

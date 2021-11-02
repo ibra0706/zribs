@@ -62,7 +62,9 @@ $sql = "SELECT * FROM ucitelji";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
-                    echo '<h3>'. $row['ime'].' '. $row['priimek'].'</h3> <br>';
+                    echo '<h3 href="predmetInfo.php?id='. $row['id_ucitlja'] .'">';
+                    echo $row['ime'] .'   ' . $row['priimek'];
+                    echo '</h3> <br>';
             }
         // Free result set
         mysqli_free_result($result);
@@ -72,9 +74,13 @@ if($result = mysqli_query($link, $sql)){
 } else{
     echo "Oops! Something went wrong. Please try again later.";
 }
+
+// Close connection
+mysqli_close($link);
 ?>
         </div>
+        </div>
     </div>
-    </div>
+    
 </body>
 </html>

@@ -1,10 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 .outer-main {
   display: flex;
@@ -13,20 +12,28 @@
   justify-content: space-evenly;
 }
 
+body{
+  font-family: "Lato";
+    font-size: 1.2rem;
+}
+
 .main {
   display: flex;
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   width: 70%;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .main2 {
   margin-top: 1.5rem;
   display: flex;
   width: 30%;
-  height: 50vh;
+  min-height: 50vh;
+  height: auto;
   justify-content: center;
 }
 

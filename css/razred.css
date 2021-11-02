@@ -9,6 +9,8 @@
 
 body {
   height: 100vh;
+  font-family: "Lato";
+    font-size: 1.2rem;
 }
 
 h1 {
