@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: ucitelji.php");
+                header("location: dijaki.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ustvari učitelja</title>
+    <title>Ustvari dijaka</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Ustvari učitelja</h2>
+                    <h2 class="mt-5">Ustvari dijaka</h2>
                     <!-- <p>Please fill this form and submit to add employee record to the database.</p> -->
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">

@@ -2,11 +2,11 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 // require_once "config.php";
 // $id = $_SESSION['idnalog'];
-$predmet;
-$dijak;
+if($_SERVER["REQUEST_METHOD"] == "GET") {$id_predmet = $_GET['idpred'];}
+
 // $target_dir = "../uploads/".$predmet."/".$dijak."/";
-// $target_dir = "../uploads/".$id;
-$target_dir = "../uploads/";
+$target_dir = "../uploads/" . strval($id_predmet) . "/";
+// $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -20,7 +20,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 //   } else {
 //     echo "File is not an image.";
 //     $uploadOk = 0;
-//     // Adrian was here
+//     
 //   }
 // }
 
@@ -83,6 +83,7 @@ if ($uploadOk == 0) {
   Izberi datoteko, ki jo boš naložil:
   <label for="fileToUpload" class="btn">Izberi datoteko</label>
   <input type="file" name="fileToUpload" id="fileToUpload" style="visibility:hidden;">
+  <input type="number" hidden name="id_predmet" value="<?php echo $id_predmet; ?>">
   <input type="submit" value="Naloži" name="submit" class="btn">
 </form>
 

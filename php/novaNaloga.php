@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ustvari učitelja</title>
+    <title>Ustvari nalogo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -96,6 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+    <?php include "header.php" ?>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

@@ -45,7 +45,7 @@
             if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){              
                             echo '<div class="naloga">';
-                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . ' ">' . $row['naziv'] .'</a></div>';
+                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a></div>';
                             echo '</div>';
                     }
                 mysqli_free_result($result);
