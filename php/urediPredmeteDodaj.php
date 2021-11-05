@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_close($stmt);
             }
             // header("location: urediPredmete.php");
-            exit();
+            // exit();
 
     }
 }
@@ -49,7 +49,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     require_once "config.php";
     $id = $_SESSION["id"];
     $stPred = 0;
-    $sql = "SELECT  p.* FROM dijakPredmet d, predmeti p  where id_dijaki = $id AND not p.id_predmet = d.id_predmet;";
+    $sql = "SELECT DISTINCT p.*
+            FROM dijakPredmet d
+            RIGHT JOIN predmeti p
+            ON d.id_predmet = p.id_predmet AND id_dijaki = $id
+            WHERE d.id_predmet IS NULL;";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
