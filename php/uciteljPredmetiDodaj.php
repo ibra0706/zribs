@@ -1,18 +1,14 @@
 <?php
 require_once "config.php";
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
- $id = $_SESSION['id'];
-
+$id = $_GET['id'];
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $st = trim($_POST['stevilo']);
+    $id = trim($_POST["id"]);
+
         if(!empty($_POST['lang'])) {    
             foreach($_POST['lang'] as $value){
 
-
-                $sql = "INSERT INTO dijakPredmet (id_dijaki, id_predmet) VALUES (?, ?)";
+                $sql = "INSERT INTO uciteljPredmet (id_ucitlja, id_predmet) VALUES (?, ?)";
          
                 if($stmt = mysqli_prepare($link, $sql)){
                     mysqli_stmt_bind_param($stmt, "ii", $par_dijak, $par_predmet);
@@ -22,12 +18,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_execute($stmt)){
                         
                     } else{
-                        echo "Oops! Something went wrong. Please try again later.";
+                        echo "Oops! .";
                     }
                 }
                 mysqli_stmt_close($stmt);
             }
-            header("location: mainPage.php");
+            header("location: ucitelji.php");
             exit();
 
     }
@@ -49,12 +45,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
     <?php
     require_once "config.php";
-    $id = $_SESSION["id"];
-    $stPred = 0;
+    $id = $_GET['id'];
+
     $sql = "SELECT DISTINCT p.*
-            FROM dijakPredmet d
+            FROM uciteljPredmet d
             RIGHT JOIN predmeti p
-            ON d.id_predmet = p.id_predmet AND id_dijaki = $id
+            ON d.id_predmet = p.id_predmet AND id_ucitlja = $id
             WHERE d.id_predmet IS NULL;";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
@@ -71,10 +67,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Oops! Something went wrong. Please try again later.";
     }
     mysqli_close($link);
-    echo '<input type="number" name="stevilo" hidden value="'.$stPred.'">';
     ?>
     <input type="submit" class="predmetUredi" value="Dodaj">
-    <a href="mainPage.php" class="predmetUredi">Nazaj</a>
+    <input type="number" hidden name="id" value="<?php echo $id; ?>">
+
+    <a href="ucitelji.php" class="predmetUredi">Nazaj</a>
     </form>
     </div>
 </body>

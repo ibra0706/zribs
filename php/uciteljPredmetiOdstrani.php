@@ -1,16 +1,12 @@
 <?php
 require_once "config.php";
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
- $id = $_SESSION['id'];
-
+$id = $_GET['id'];
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(!empty($_POST['lang'])) {    
             foreach($_POST['lang'] as $value){
 
-                $sql = "DELETE FROM dijakPredmet WHERE id_di_pre_povezava = ?";
+                $sql = "DELETE FROM uciteljPredmet WHERE id_uc_pre_povezava = ?";
     
                 if($stmt = mysqli_prepare($link, $sql)){
                     mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -26,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }     
         mysqli_stmt_close($stmt);
     }
-    header("location: mainPage.php");
+    header("location: ucitelji.php");
     exit();
 }
     
@@ -47,20 +43,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
 <?php
     require_once "config.php";
-    $id = $_SESSION['id'];
-    $stPred = 0;
-    $sql = "SELECT p.*, d.* FROM dijakPredmet d, predmeti p  where id_dijaki = $id AND  p.id_predmet = d.id_predmet;";
+    $id = $_GET['id'];
+
+    $sql = "SELECT p.*, d.* FROM uciteljPredmet d, predmeti p  where id_ucitlja = $id AND  p.id_predmet = d.id_predmet;";
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
-                        $stPred++;
                         echo '<div class="predmetForm">';
                         echo $row['ime_predmeta'];
-                        echo '<input type="checkbox" class="checkMark" name="lang[]" value="'.$row['id_di_pre_povezava'].'"></div>';
+                        echo '<input type="checkbox" class="checkMark" name="lang[]" value="'.$row['id_uc_pre_povezava'].'"></div>';
                 }
             mysqli_free_result($result);
         } else{
-            echo '<div class="alert alert-danger"><em>Dijak nima izbranih predmetov.</em></div>';
+            echo '<div class="alert alert-danger"><em>Ucitelj nima izbranih predmetov.</em></div>';
         }
     } else{
         echo "Oops! Something went wrong. Please try again later.";
@@ -68,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
     ?>
     <input type="submit" class="predmetUredi" value="Briši">
-    <a href="mainPage.php" class="predmetUredi">Nazaj</a>
+    <a href="ucitelji.php" class="predmetUredi">Nazaj</a>
     </form>
     </div>
 </body>

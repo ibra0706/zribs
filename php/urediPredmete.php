@@ -9,6 +9,6 @@
 </head>
 <body>
     <a class="predmet" href="urediPredmeteDodaj.php">Dodaj predmet</a>
-    <a class="predmet" href="">Odstrani predmete</a>
+    <a class="predmet" href="urediPredmeteOdstrani.php">Odstrani predmete</a>
 </body>
 </html>

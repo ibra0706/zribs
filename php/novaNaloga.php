@@ -102,7 +102,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Ustvari nalogo</h2>
-                    <!-- <p>Please fill this form and submit to add employee record to the database.</p> -->
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Ime naloge</label>
