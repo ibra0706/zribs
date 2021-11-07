@@ -74,11 +74,27 @@
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
+                        $idUcit = $row['id_ucitlja'];
                         echo '<h3 href="predmetInfo.php?id='. $row['id_ucitlja'] .'">';
                         echo $row['ime'] .'   ' . $row['priimek'];
+                            
+                        $sql_ucitelj = "SELECT p.*, d.* FROM uciteljPredmet d, predmeti p  where id_ucitlja = $idUcit AND  p.id_predmet = d.id_predmet;";
+                            if($resultUcit = mysqli_query($link, $sql_ucitelj)){
+                                if(mysqli_num_rows($resultUcit) > 0){
+                                        while($rowUcit = mysqli_fetch_array($resultUcit)){
+
+                                                echo "<span> ". $rowUcit['kratica']. " </span>";
+                                        }
+                    
+                                    mysqli_free_result($resultUcit);
+                                } else{
+                                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                                }
+                            } else{
+                                echo "Oops! Please try again later.";
+                            }
                         echo '</h3> <br>';
                 }
-            // Free result set
             mysqli_free_result($result);
         } else{
             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
