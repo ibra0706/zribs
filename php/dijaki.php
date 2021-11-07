@@ -80,10 +80,11 @@
                                         echo "<td>" . $row['mail'] . "</td>";
                                         echo "<td>" . $row['geslo_vidno'] . "</td>";
                                         echo "<td>";
-                                        // Adrian was here
                                             echo '<a href="beri-dijak.php?id='. $row['id_dijaki'] .'" class="mr-3" title="Poglej" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
                                             echo '<a href="posodobi-dijak.php?id='. $row['id_dijaki'] .'" class="mr-3" title="Posodobi" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
                                             echo '<a href="izbrisi-dijak.php?id='. $row['id_dijaki'] .'" title="Izbriši" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="urediPredmeteDodaj.php?id='. $row['id_dijaki'] .'" title="Dodaj predmete" data-toggle="tooltip"><span><i class="far fa-plus-square"></i></span></a>';
+                                            echo '<a href="urediPredmeteOdstrani.php?id='. $row['id_dijaki'] .'" title="Odstrani predmete" data-toggle="tooltip"><i class="far fa-minus-square"></i></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }

@@ -19,7 +19,7 @@
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
                     $row = mysqli_fetch_array($result);            
-                    echo $row['ime_predmeta'];
+                    echo $row['kratica'] .' - '. $row['ime_predmeta'];;
                     mysqli_free_result($result);
                 } else{
                     echo '<div class="alert alert-danger"><em>Ni še nalog.</em></div>';

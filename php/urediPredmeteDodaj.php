@@ -1,13 +1,25 @@
 <?php
 require_once "config.php";
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
-    session_start();
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $vhod = "admin";
+}else {
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $id = $_SESSION["id"];
+    $vhod = "dijak";
 }
- $id = $_SESSION['id'];
+
 
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $st = trim($_POST['stevilo']);
+        $vhod = trim($_POST['vhod']);
+        if(!empty($_POST['getId'])){
+            $id = $_POST['getId'];
+        }
+
         if(!empty($_POST['lang'])) {    
             foreach($_POST['lang'] as $value){
 
@@ -27,7 +39,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
                 mysqli_stmt_close($stmt);
             }
-            header("location: mainPage.php");
+            if($vhod == "dijak"){
+                header("location: mainPage.php");
+            } else{
+                header("location: dijaki.php");
+            }
             exit();
 
     }
@@ -49,8 +65,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
     <?php
     require_once "config.php";
-    $id = $_SESSION["id"];
-    $stPred = 0;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }else {
+        $id = $_SESSION["id"];
+    }
+    
     $sql = "SELECT DISTINCT p.*
             FROM dijakPredmet d
             RIGHT JOIN predmeti p
@@ -71,10 +91,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Oops! Something went wrong. Please try again later.";
     }
     mysqli_close($link);
-    echo '<input type="number" name="stevilo" hidden value="'.$stPred.'">';
+    
+    echo '<input type="submit" class="predmetUredi" value="Dodaj">';
+
+    if(isset($_GET['id'])){
+        echo '<a href="dijaki.php" class="predmetUredi">Nazaj</a>
+                <input type="text" name="vhod" hidden value="admin">
+                <input type="number" name="getId" hidden value="'.$_GET['id'].'">';
+    } else{
+        echo '<a href="mainPage.php" class="predmetUredi">Nazaj</a>
+                <input type="text" name="vhod" hidden value="dijak">';
+    }
     ?>
-    <input type="submit" class="predmetUredi" value="Dodaj">
-    <a href="mainPage.php" class="predmetUredi">Nazaj</a>
+    
     </form>
     </div>
 </body>
