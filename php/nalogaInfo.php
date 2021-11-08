@@ -89,10 +89,16 @@ if($result = mysqli_query($link, $sql)){
                     echo '<div class="naloga">';
                     echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
+                    echo '<br/>';
+                    echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
+                   
+                    echo '<br/>';
+                    
                     echo '<h3>Oddane datoteke:</h3>';
                     echo '<br/>';
                     echo '<div class="datoteke">';
                   //naloge
+                  if($_SESSION['status']=='d'){
                   $sql_oddana = "SELECT * FROM odaneNaloge WHERE id_dijaki=$id_dijak and id_predmet=$id_predmet and id_naloge=$id";
                   if($result_oddana = mysqli_query($link, $sql_oddana)){
                       if(mysqli_num_rows($result_oddana) > 0){
@@ -111,13 +117,29 @@ if($result = mysqli_query($link, $sql)){
                   } else{
                       echo "Oops! Something went wrong. Please try again later.";
                   }
+                  echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
+                  echo '<br/>';
+                  echo include 'nalozi.php';
+                }else{
+                    $sql_oddana = "SELECT * FROM odaneNaloge WHERE id_predmet=$id_predmet and id_naloge=$id";
+                    if($result_oddana = mysqli_query($link, $sql_oddana)){
+                        if(mysqli_num_rows($result_oddana) > 0){
+                                while($row_oddana = mysqli_fetch_array($result_oddana)){
+                                    echo $row_oddana['ime_datoteke'] .'</br>';
+                                }
+  
+                            mysqli_free_result($result_oddana);
+                        } else{
+                            echo '<div class="alert alert-danger"><em>ni oddane naloge</em></div>';
+                        }
+                    } else{
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+                  }
                   echo '</div>';
 //naloge
-                    echo '<br/>';
-                    echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
-                    echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
-                    echo '<br/>';
-                    echo include 'nalozi.php';
+                    
+                    
                     echo '</div>';
             }
 

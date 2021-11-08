@@ -39,8 +39,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 //Check if file already exists
 if (file_exists($target_file)) {
-  echo "Ta datoteka že obstaja";
-  echo '<br/>';
+  echo "Ta datoteka je bila povozena";
   $overwrite = 0;
 }
 
