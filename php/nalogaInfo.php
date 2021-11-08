@@ -117,15 +117,13 @@ if($result = mysqli_query($link, $sql)){
                   } else{
                       echo "Oops! Something went wrong. Please try again later.";
                   }
-                  echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
-                  echo '<br/>';
-                  echo include 'nalozi.php';
+                  
                 }else{
                     $sql_oddana = "SELECT * FROM odaneNaloge WHERE id_predmet=$id_predmet and id_naloge=$id";
                     if($result_oddana = mysqli_query($link, $sql_oddana)){
                         if(mysqli_num_rows($result_oddana) > 0){
                                 while($row_oddana = mysqli_fetch_array($result_oddana)){
-                                    echo $row_oddana['ime_datoteke'] .'</br>';
+                                    echo '<a href="../uploads/'.$row_oddana['id_predmet'].'/'.$row_oddana['id_naloge'].'/'.$row_oddana['id_dijaki'].'/'.$row_oddana['ime_datoteke'].'" download="'.$row_oddana['ime_datoteke'].'">'.$row_oddana['ime_datoteke'] .'</a>'.'</br>';
                                 }
   
                             mysqli_free_result($result_oddana);
@@ -138,6 +136,11 @@ if($result = mysqli_query($link, $sql)){
                   }
                   echo '</div>';
 //naloge
+                    if ($_SESSION['status'] === 'd') {
+                      echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
+                    echo '<br/>';
+                    echo include 'nalozi.php';
+                    }
                     
                     
                     echo '</div>';
