@@ -75,7 +75,6 @@ if($result = mysqli_query($link, $sql)){
                     echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<h3 class="red" onClick="goBack()">X</h3>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<h3>Oddane datoteke:</h3>';
-                    echo ;
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                     echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
                     echo include 'nalozi.php';

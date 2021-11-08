@@ -2,18 +2,23 @@
 if($_SERVER["REQUEST_METHOD"] == "GET") {$id_naloge = $_GET['idnalog'];}
 if($_SERVER["REQUEST_METHOD"] == "GET") {$id_predmet = $_GET['idpred'];}
 
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   $id_predmet = trim($_POST["id_predmet"]);
   $id_naloge = trim($_POST["id_naloge"]);
+  $id_dijak = $_SESSION['id'];
   // require_once "config.php";
 // $id = $_SESSION['idnalog'];
 // $target_dir = "../uploads/".$predmet."/".$dijak."/";
-if (!file_exists('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/')) {
-  mkdir('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/', 0777, true);
+if (!file_exists('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/'.strval($id_dijak).'/')) {
+  mkdir('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/'.strval($id_dijak).'/', 0777, true);
 }
-$target_dir = "../uploads/" . strval($id_predmet) . "/";
-// $target_dir = "../uploads/";
+$target_dir = '../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/'.strval($id_dijak).'/';
+$ime_datoteke = $_FILES["fileToUpload"]["name"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -32,10 +37,10 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // }
 
 // Check if file already exists
-if (file_exists($target_file)) {
-  echo "Ta datoteka že obstaja";
-  $uploadOk = 0;
-}
+// if (file_exists($target_file)) {
+//   echo "Ta datoteka že obstaja";
+//   $uploadOk = 0;
+// }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 10000000) {
@@ -56,7 +61,27 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        require_once "config.php";
+    
+        $sql = "INSERT INTO odaneNaloge (id_naloge, id_predmet, id_dijaki, ime_datoteke) VALUES (?, ?, ?, ?)";
+         
+        if($stmt = mysqli_prepare($link, $sql)){
+            mysqli_stmt_bind_param($stmt, "iiis", $par_id_naloge, $par_id_predmet, $par_id_dijaki, $par_ime_datoteke);
+            
+            $par_id_naloge = $id_naloge;
+            $par_id_predmet = $id_predmet;
+            $par_id_dijaki = $_SESSION['id'];
+            $par_ime_datoteke =  $ime_datoteke;
+          
+
+            if(mysqli_stmt_execute($stmt)){
+            } else{
+                echo "neki je slo narobe.";
+            }
+        }
+
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    header ("predmetInfo.php?id=".$id_predmet);
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
@@ -95,15 +120,6 @@ if ($uploadOk == 0) {
     <input type="submit" value="Naloži" name="submit" class="btn">
   </form>
 
-  <!-- <script>
-    const btn = document.querySelector('.btn');
-    console.log(btn);
-    const submitHandler = e =>{
-      console.log(e)
-      e.preventDefault();
-    }
-
-    btn.addEventListener('click', submitHandler());
-  </script> -->
+ 
 </body>
 </html>
