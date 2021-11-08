@@ -139,7 +139,7 @@ if($result = mysqli_query($link, $sql)){
                     if ($_SESSION['status'] === 'd') {
                       echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
                     echo '<br/>';
-                    echo include 'nalozi.php';
+                    include 'nalozi.php';
                     }
                     
                     
