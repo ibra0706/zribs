@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if($_SERVER["REQUEST_METHOD"] == "GET") {$id_predmet = $_GET['idpred'];}
 
 // $target_dir = "../uploads/".$predmet."/".$dijak."/";
-$target_dir = "../uploads/" . strval($id_predmet) . "/";
+$target_dir = "../uploads/";
 // $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

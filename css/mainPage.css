@@ -92,3 +92,17 @@ h2{
   transition: 300ms;
   background-color: rgba(158, 158, 158, 0.493);
 }
+
+.predKrat{
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 0;
+}
+
+.predKrat span{
+  background-color: #fa941d;
+  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  color: white;
+}
