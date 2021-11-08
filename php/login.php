@@ -32,9 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $param_mail);
             
             $param_mail = $mail;
-            
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_store_result($stmt);
+                
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     mysqli_stmt_bind_result($stmt, $id, $mail, $hashed_password);
@@ -80,58 +80,56 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         $login_err = "Invalid mail or geslo.";
                                     }
                                 }
-                            } else{
-                                $login_err = "Invalid mail or geslo.";
+                            } else {
+                                // mysqli_stmt_close($stmt);
+                                $sql_admin = "SELECT id_admin, mail, geslo FROM adminTable WHERE mail = ?";
+                    
+                                // echo $stmt;
+                                if($stmt = mysqli_prepare($link, $sql_admin)){
+                                    mysqli_stmt_bind_param($stmt, "s", $param_mail);
+                                    $param_mail = $mail;
+                                    
+                                    if(mysqli_stmt_execute($stmt)){
+                                        mysqli_stmt_store_result($stmt);
+                                        
+                                        if(mysqli_stmt_num_rows($stmt) == 1){                    
+                                            mysqli_stmt_bind_result($stmt, $id, $mail, $hashed_password);
+                                            if(mysqli_stmt_fetch($stmt)){
+                                                if(password_verify($geslo, $hashed_password)){
+                                                    session_start();
+                                                    
+                                                    $_SESSION["loggedin"] = true;
+                                                    $_SESSION["id"] = $id;
+                                                    $_SESSION["status"] = 'a';
+                                                    $_SESSION["mail"] = $mail;                            
+                                                    
+                                                    header("location: ./mainPage.php");
+                                                } else{
+                                                    $login_err = "Invalid mail or geslo.";
+                                                }
+                                            }
+                                        } else{
+                                            $login_err = "Invalid mail or geslo.";
+                                        }
+                                    } else{
+                                        echo "Prislo je od napake.";
+                                    }
+        
+                                    // mysqli_stmt_close($stmt);
+                                }
                             }
                         } else{
                             echo "Prislo je od napake.";
                         }
 
                         // mysqli_stmt_close($stmt);
-                    } else {
-                        mysqli_stmt_close($stmt);
-                        $sql = "SELECT id_admin, mail, geslo FROM admin WHERE mail = ?";
-            
-                        if($stmt = mysqli_prepare($link, $sql)){
-                            mysqli_stmt_bind_param($stmt, "s", $param_mail);
-                            
-                            $param_mail = $mail;
-                            
-                            if(mysqli_stmt_execute($stmt)){
-                                mysqli_stmt_store_result($stmt);
-                                
-                                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                                    mysqli_stmt_bind_result($stmt, $id, $mail, $hashed_password);
-                                    if(mysqli_stmt_fetch($stmt)){
-                                        if(password_verify($geslo, $hashed_password)){
-                                            session_start();
-                                            
-                                            $_SESSION["loggedin"] = true;
-                                            $_SESSION["id"] = $id;
-                                            $_SESSION["status"] = 'a';
-                                            $_SESSION["mail"] = $mail;                            
-                                            
-                                            header("location: ./mainPage.php");
-                                        } else{
-                                            $login_err = "Invalid mail or geslo.";
-                                        }
-                                    }
-                                } else{
-                                    $login_err = "Invalid mail or geslo.";
-                                }
-                            } else{
-                                echo "Prislo je od napake.";
-                            }
-
-                            mysqli_stmt_close($stmt);
-                        }
-                    }
+                    } 
                 }
             } else{
                 echo "Prislo je od napake.";
             }
 
-            mysqli_stmt_close($stmt);
+            // mysqli_stmt_close($stmt);
         }
     }
     
