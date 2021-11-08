@@ -63,8 +63,13 @@ require_once "config.php";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
   $id = $_GET['idnalog'];
   $_SESSION["idnalog"] = $id;
+  $id_dijak = $_SESSION['id'];
+  $id_predmet = $_GET['idpred'];
+  $_SESSION["idpred"] = $id_predmet;
 } else {
   $id = $_SESSION['idnalog'];
+  $id_dijak = $_SESSION['id'];
+  $id_predmet = $_SESSION['idpred'];
 }
 
 $sql = "SELECT * FROM naloge WHERE id_naloge = $id";
@@ -75,6 +80,24 @@ if($result = mysqli_query($link, $sql)){
                     echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<h3 class="red" onClick="goBack()">X</h3>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<h3>Oddane datoteke:</h3>';
+
+                  //naloge
+                  $sql_oddana = "SELECT * FROM odaneNaloge WHERE id_dijaki=$id_dijak and id_predmet=$id_predmet and id_naloge=$id";
+                  if($result_oddana = mysqli_query($link, $sql_oddana)){
+                      if(mysqli_num_rows($result_oddana) > 0){
+                              while($row_oddana = mysqli_fetch_array($result_oddana)){
+                                  echo $row_oddana['ime_datoteke'];   
+                              }
+
+                          mysqli_free_result($result_oddana);
+                      } else{
+                          echo '<div class="alert alert-danger"><em>ni oddane naloge</em></div>';
+                      }
+                  } else{
+                      echo "Oops! Something went wrong. Please try again later.";
+                  }
+//naloge
+
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                     echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
                     echo include 'nalozi.php';
@@ -88,6 +111,8 @@ if($result = mysqli_query($link, $sql)){
 } else{
     echo "Oops! Something went wrong. Please try again later.";
 }
+
+
 mysqli_close($link);
 ?>
 <script>
