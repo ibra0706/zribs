@@ -1,10 +1,17 @@
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-// require_once "config.php";
-// $id = $_SESSION['idnalog'];
+if($_SERVER["REQUEST_METHOD"] == "GET") {$id_naloge = $_GET['idnalog'];}
 if($_SERVER["REQUEST_METHOD"] == "GET") {$id_predmet = $_GET['idpred'];}
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+  $id_predmet = trim($_POST["id_predmet"]);
+  $id_naloge = trim($_POST["id_naloge"]);
+  // require_once "config.php";
+// $id = $_SESSION['idnalog'];
 // $target_dir = "../uploads/".$predmet."/".$dijak."/";
+if (!file_exists('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/')) {
+  mkdir('../uploads/'.strval($id_predmet).'/'.strval($id_naloge).'/', 0777, true);
+}
 $target_dir = "../uploads/" . strval($id_predmet) . "/";
 // $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -80,10 +87,23 @@ if ($uploadOk == 0) {
 <body>
 
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+    <input type="number" hidden name="id_predmet" value="<?php echo $id_predmet; ?>">
+    <input type="number" hidden name="id_naloge" value="<?php echo $id_naloge; ?>">
     Izberi datoteko, ki jo boš naložil:
     <label for="fileToUpload" class="btn">Izberi datoteko</label>
     <input type="file" name="fileToUpload" id="fileToUpload" style="visibility:hidden;">
     <input type="submit" value="Naloži" name="submit" class="btn">
   </form>
+
+  <!-- <script>
+    const btn = document.querySelector('.btn');
+    console.log(btn);
+    const submitHandler = e =>{
+      console.log(e)
+      e.preventDefault();
+    }
+
+    btn.addEventListener('click', submitHandler());
+  </script> -->
 </body>
 </html>
