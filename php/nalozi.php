@@ -40,12 +40,14 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 //Check if file already exists
 if (file_exists($target_file)) {
   echo "Ta datoteka že obstaja";
+  echo '<br/>';
   $overwrite = 0;
 }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 10000000) {
   echo "Sorry, your file is too large.";
+  echo '<br/>';
   $uploadOk = 0;
 }
 
@@ -59,6 +61,7 @@ if ($_FILES["fileToUpload"]["size"] > 10000000) {
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
+  echo '<br/>';
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -79,13 +82,16 @@ if ($uploadOk == 0) {
             if(mysqli_stmt_execute($stmt)){
             } else{
                 echo "neki je slo narobe.";
+                echo '<br/>';
             }
         }
     }
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    echo '<div class="show">'."The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.". '</div>';
+    echo '<br/>';
     header ("predmetInfo.php?id=".$id_predmet);
   } else {
     echo "Sorry, there was an error uploading your file.";
+    echo '<br/>';
   }
 }
 }
@@ -109,11 +115,16 @@ if ($uploadOk == 0) {
                 border: none;
                 border-radius: 5px;
             }
+            .show{
+              display: block;
+            }
+            .hide{
+              display: none;
+            }
         </style>
     </head>
 <body>
-
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" onsubmit="clickHandler()">
     <input type="number" hidden name="id_predmet" value="<?php echo $id_predmet; ?>">
     <input type="number" hidden name="id_naloge" value="<?php echo $id_naloge; ?>">
     Izberi datoteko, ki jo boš naložil:
@@ -121,7 +132,5 @@ if ($uploadOk == 0) {
     <input type="file" name="fileToUpload" id="fileToUpload" style="visibility:hidden;">
     <input type="submit" value="Naloži" name="submit" class="btn">
   </form>
-
- 
 </body>
 </html>

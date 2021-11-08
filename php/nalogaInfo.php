@@ -23,7 +23,7 @@
         }
         .naloga{
             width: 60%;
-            height: 50%;
+
             position: absolute;
             top: 50%;
             left: 50%;
@@ -39,12 +39,6 @@
             border: 1px solid #fa941d;
             padding: 1rem;
         }
-        iframe{
-            border: none;
-            height: 15%;
-            width: 100%;
-            overflow: hidden;
-        }
         .flex{
             display: flex;
             justify-content: space-between;
@@ -52,6 +46,22 @@
         .red{
             color: red;
             cursor: pointer;
+            text-decoration: none;
+        }
+        .datoteka{
+          margin: 0;
+          border: 1px solid #fa941d;
+          padding: 1rem;
+          width: 15%;
+        }
+        .datoteke{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        .bdw{
+          border-bottom: 1px solid #fa941d;
         }
     </style>
 </head>
@@ -71,22 +81,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
   $id_dijak = $_SESSION['id'];
   $id_predmet = $_SESSION['idpred'];
 }
-
+$chinug = './predmetInfo.php?id='. $id_predmet; 
 $sql = "SELECT * FROM naloge WHERE id_naloge = $id";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                     echo '<div class="naloga">';
-                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<h3 class="red" onClick="goBack()">X</h3>'.'</div>'. '<br>';
+                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<h3>Oddane datoteke:</h3>';
-
+                    echo '<br/>';
+                    echo '<div class="datoteke">';
                   //naloge
                   $sql_oddana = "SELECT * FROM odaneNaloge WHERE id_dijaki=$id_dijak and id_predmet=$id_predmet and id_naloge=$id";
                   if($result_oddana = mysqli_query($link, $sql_oddana)){
                       if(mysqli_num_rows($result_oddana) > 0){
                               while($row_oddana = mysqli_fetch_array($result_oddana)){
-                                  echo $row_oddana['ime_datoteke'];   
+                                  echo '<div class="datoteka">';
+                                  echo '<h3 class="red bdw">X</h3>';
+                                  echo $row_oddana['ime_datoteke'] . ' '; 
+                                   
+                                  echo '</div>'; 
                               }
 
                           mysqli_free_result($result_oddana);
@@ -96,10 +111,12 @@ if($result = mysqli_query($link, $sql)){
                   } else{
                       echo "Oops! Something went wrong. Please try again later.";
                   }
+                  echo '</div>';
 //naloge
-
+                    echo '<br/>';
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                     echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
+                    echo '<br/>';
                     echo include 'nalozi.php';
                     echo '</div>';
             }
@@ -115,11 +132,7 @@ if($result = mysqli_query($link, $sql)){
 
 mysqli_close($link);
 ?>
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
+<script src="../js/nalogaInfo.js"></script>
 
 </body>
 </html>
