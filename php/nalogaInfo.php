@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
         }
-        .red{
+        .red, .red a{
             color: red;
             cursor: pointer;
             text-decoration: none;
@@ -104,7 +104,7 @@ if($result = mysqli_query($link, $sql)){
                       if(mysqli_num_rows($result_oddana) > 0){
                               while($row_oddana = mysqli_fetch_array($result_oddana)){
                                   echo '<div class="datoteka">';
-                                  echo '<h3 class="red bdw">X</h3>';
+                                  echo '<h3 class="red bdw"><a href="izbrisiDatoteko.php?idpred='.$id_predmet.'&idnalog='.$id.'&ime='.$row_oddana['ime_datoteke'].'&id='.$row_oddana['id_di_nal'].'">X</a></h3>';
                                   echo $row_oddana['ime_datoteke'] . ' '; 
                                    
                                   echo '</div>'; 
