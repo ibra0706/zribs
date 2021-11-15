@@ -1,25 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Lato&display=swap");
 
 header {
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
-h1 a{
-    text-decoration: none;
-    color: black;
+h1 a {
+  text-decoration: none;
+  color: black;
+  font-family: "audiowide";
+  background: none;
 }
 
-.logout{
-    text-decoration: none;
-    color: #fff;
-    background: #fa941d;
-    padding: 0.5rem 0.8rem;
-    border-radius: 2px;
-    font-family: "Lato";
-    font-size: 1.2rem;
+.logout {
+  text-decoration: none;
+  color: #fff;
+  background: #fa941d;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2px;
+  font-family: "Lato";
+  font-size: 1.2rem;
 }

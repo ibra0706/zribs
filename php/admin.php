@@ -11,13 +11,13 @@
     <?php include "header.php" ?>
     <main>
         <div class="con"> 
-            <iframe src="dijaki.php" frameborder="0" width="100%" height="300px"></iframe>
+            <a href="dijaki.php" class="logout">Dijaki</a>
         </div>
         <div class="con">
-            <iframe src="ucitelji.php" frameborder="0" width="100%" height="300px"></iframe>
+            <a href="ucitelji.php" class="logout">Ucitelji</a>
         </div>
         <div class="con">
-            <iframe src="predmeti.php" frameborder="0" width="100%" height="300px"></iframe>
+            <a href="predmeti.php" class="logout">Predmeti</a>
         </div>
     </main>
 </body>
