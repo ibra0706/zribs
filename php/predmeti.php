@@ -40,6 +40,14 @@
         .retard{
             border: none;
             background: #fa941d;
+            font-family: Lato;
+            font-size: 1.5rem;
+            color: white;
+            padding-left:3rem;
+        }
+
+        .retard:hover{
+            background: #ffa31d;
         }
         i.fa-undo{
             font-size: 2rem;
@@ -53,7 +61,7 @@
 </head>
 <body>
 <?php include "header.php" ?>
-    <button onclick="goBack()" class="retard"><i class="fas fa-undo"></i></button>
+    <button onclick="goBack()" class="retard">Nazaj</button>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

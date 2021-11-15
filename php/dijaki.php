@@ -41,10 +41,33 @@
         .retard{
             border: none;
             background: #fa941d;
+            font-family: Lato;
+            font-size: 1.5rem;
+            color: white;
+            padding-left:3rem;
         }
+
+        .retard:hover{
+            background: #ffa31d;
+        }
+
         i.fa-undo{
             font-size: 2rem;
         }
+
+        .wrapper{
+            margin: 0px;
+            width: auto;
+        }
+
+        .main{
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
     </style>
     <script>
         $(document).ready(function(){
@@ -54,7 +77,8 @@
 </head>
 <body>
     <?php include "header.php" ?>
-    <button onclick="goBack()" class="retard"><i class="fas fa-undo"></i></button>
+    <button onclick="goBack()" class="retard">Nazaj</button>
+    <div class="main">
     <div class="wrapper">
         <div class="container-fluid" padding="0">
             <div class="row">
@@ -116,6 +140,7 @@
                 </div>
             </div>        
         </div>
+    </div>
     </div>
 <script>
 function goBack() {
