@@ -62,6 +62,7 @@ if ($uploadOk == 0) {
     header ("location: predmetInfo.php?id=".$id_predmet);
     echo '<div class="show">'."The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.". '</div>';
     echo '<br/>';
+    mysqli_stmt_close($stmt);
   } else {
     echo "Sorry, there was an error uploading your file.";
     echo '<br/>';
