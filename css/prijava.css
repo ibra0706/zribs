@@ -91,3 +91,10 @@ input:focus {
   transition-duration: 300ms;
   cursor: pointer;
 }
+
+.napaka{
+  height: 1.5rem;
+  color: white;
+  font-family: Lato;
+  font-size: 1.2rem;
+}

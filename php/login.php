@@ -14,13 +14,13 @@ $mail_err = $geslo_err = $login_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     if(empty(trim($_POST["mail"]))){
-        $mail_err = "Please enter mail.";
+        $mail_err = "Vpišite mail.";
     } else{
         $mail = trim($_POST["mail"]);
     }
     
     if(empty(trim($_POST["geslo"]))){
-        $geslo_err = "Please enter your geslo.";
+        $geslo_err = "Vpišite geslo.";
     } else{
         $geslo = trim($_POST["geslo"]);
     }
@@ -49,11 +49,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             header("location: ./mainPage.php");
                         } else{
-                            $login_err = "Invalid mail or geslo.";
+                            $login_err = "Nepravilno geslo ali mail.";
                         }
                     }
                 } else{
-                    // mysqli_stmt_close($stmt);
                     $sql = "SELECT id_ucitlja, mail, geslo FROM ucitelji WHERE mail = ?";
         
                     if($stmt = mysqli_prepare($link, $sql)){
@@ -77,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                         
                                         header("location: ./mainPage.php");
                                     } else{
-                                        $login_err = "Invalid mail or geslo.";
+                                        $login_err = "Nepravilno geslo ali mail.";
                                     }
                                 }
                             } else {
@@ -105,11 +104,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                                     
                                                     header("location: ./mainPage.php");
                                                 } else{
-                                                    $login_err = "Invalid mail or geslo.";
+                                                    $login_err = "Nepravilno geslo ali mail.";
                                                 }
                                             }
                                         } else{
-                                            $login_err = "Invalid mail or geslo.";
+                                            $login_err = "Nepravilno geslo ali mail.";
                                         }
                                     } else{
                                         echo "Prislo je od napake.";
@@ -148,21 +147,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
 <main>   
     <h1>Prijava</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
                 <input type="text" name="mail" placeholder="Mail" <?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?> 
                 value="<?php echo $mail; ?>">
-                <span class="invalid-feedback"><?php echo $mail_err; ?></span>
+                <div class="napaka"><?php echo $mail_err; ?></div>
             </div>    
             <div>
                 <input type="password" placeholder="Geslo" name="geslo" <?php echo (!empty($geslo_err)) ? 'is-invalid' : ''; ?>>
-                <span class="invalid-feedback"><?php echo $geslo_err; ?></span>
+                <div class="napaka"><?php echo $geslo_err; ?></div>
             </div>
+            <?php 
+            
+                echo '<div class="napaka">' . $login_err . '</div>';
+                    
+            ?>
             <div>
                 <input type="submit"class="chinug" value="Prijava">
             </div>
             <p class="napis">Še nimaš računa? <a href="register.php">Registriraj se</a>.</p>
         </form>
+
 </main>
 </body>
 </html>

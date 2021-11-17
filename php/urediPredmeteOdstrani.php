@@ -12,6 +12,8 @@ if(isset($_GET['id'])){
 
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $vhod=$_POST['vhod'];
+
         if(!empty($_POST['lang'])) {    
             foreach($_POST['lang'] as $value){
 

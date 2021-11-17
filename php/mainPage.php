@@ -50,7 +50,8 @@
     
                     mysqli_free_result($result);
                 } else{
-                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    mysqli_stmt_close($stmt);
+                    header("location: urediPredmeteDodaj.php");
                 }
             } else{
                 echo "Oops! Please try again later.";
