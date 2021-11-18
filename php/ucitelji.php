@@ -43,11 +43,14 @@
             font-family: Lato;
             font-size: 1.5rem;
             color: white;
-            padding-left:3rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem 0.5rem 3rem;
         }
 
         .retard:hover{
             background: #ffa31d;
+            text-decoration: none;
+            color: #fff;
         }
         i.fa-undo{
             font-size: 2rem;
@@ -61,7 +64,7 @@
 </head>
 <body>
 <?php include "header.php" ?>
-    <button onclick="goBack()" class="retard">Nazaj</button>
+    <a href="http://localhost/zribs/php/admin.php" class="retard">Nazaj</a>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

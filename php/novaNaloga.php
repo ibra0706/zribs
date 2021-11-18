@@ -12,21 +12,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $input_ime_naloge = trim($_POST["ime_naloge"]);
     if(empty($input_ime_naloge)){
-        $ime_naloge_err = "Please enter a ime_naloge.";
+        $ime_naloge_err = "Prosim vnesi ime naloge";
     }else{
         $ime_naloge = $input_ime_naloge;
     }
 
     $input_navodila = trim($_POST["navodila"]);
     if(empty($input_navodila)){
-        $navodila_err = "Please enter a navodila.";
+        $navodila_err = "Prosim vnesi navodila";
     }else{
         $navodila = $input_navodila;
     }
     
     $input_datum_rok = trim($_POST["datum_rok"]);
     if(empty($input_datum_rok)){
-        $datum_rok_err = "Please enter an datum_rok.";     
+        $datum_rok_err = "Prosim vnesi rok oddaje";     
     } else{
         $datum_rok = $input_datum_rok;
     }
