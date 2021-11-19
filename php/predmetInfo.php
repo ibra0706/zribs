@@ -39,13 +39,13 @@
         <?php
         require_once "config.php";
         $id = $_GET['id'];
-        // echo '<script>console.log(' . $id . ')</script>';
         $sql = "SELECT * FROM naloge WHERE id_predmet = $id";
         if($result = mysqli_query($link, $sql)){
             if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){              
                             echo '<div class="naloga">';
-                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a></div>';
+                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a>
+                            </div>';
                             echo '</div>';
                     }
                 mysqli_free_result($result);

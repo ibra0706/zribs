@@ -87,7 +87,7 @@ if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                     echo '<div class="naloga">';
-                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>' . '<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>'. '<br>';
+                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>'. '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbrisi</a>' . '<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>'. '<br>';
                     echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
                     echo '<br/>';
                     echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';

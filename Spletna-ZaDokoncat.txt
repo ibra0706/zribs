@@ -2,23 +2,28 @@
 postavitev aplikacije na strežniku z OS linux
 
 Naloge po vlogah
+
 vzdrževalec IS:
-dokumentacija
-onameščanja in konfiguracije strežnika
-oprogramske rešitve
+    dokumentacija
+    onameščanja in konfiguracije strežnika
+    oprogramske rešitve
+
 razvijalca:
-specifikacije sistema
-izdelava spletne aplikacije
-ovšečna oblika
-testiranje spletne aplikacije
+    specifikacije sistema
+    izdelava spletne aplikacije
+    ovšečna oblika
+    testiranje spletne aplikacije
 vsi:
-dnevno poročilo - kaj ste naredili na posamezen dan - vsak član skupine napiše za sebe datum + natančno poročilo kaj je delal, kaj je naredil, česa mu ni uspelo narediti, zakaj mu ni uspelo
+    dnevno poročilo - kaj ste naredili na posamezen dan - vsak član skupine napiše za 
+    sebe datum + natančno poročilo kaj je delal, kaj je naredil, česa mu ni uspelo 
+    narediti, zakaj mu ni uspelo
+
+
 2.VSEBINSKA NAVODILA
 Izdelajte spletno aplikacijo za podporo šolskega dela na daljavo. Sistem naj omogoča tri poglede:
-učitelj
-ima možnost nalaganja in brisanja gradiv za izbrani predmet (samo za predmete, ki jih poučuje)
-učenec
-možnost registracije ter urejanja profila
+
+(php narejen, potreben css) učitelj ima možnost nalaganja in brisanja gradiv za izbrani predmet (samo za predmete, ki jih poučuje)
+učenec možnost registracije ter urejanja profila
 
 Poročilo
 zanka za kreiranje novih dijakov
