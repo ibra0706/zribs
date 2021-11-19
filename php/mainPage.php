@@ -50,8 +50,9 @@
     
                     mysqli_free_result($result);
                 } else{
-                    mysqli_stmt_close($stmt);
+                    if($_SESSION['status'] === 'd'){
                     header("location: urediPredmeteDodaj.php");
+                    }
                 }
             } else{
                 echo "Oops! Please try again later.";
@@ -110,6 +111,7 @@
     } else{
         echo "Oops! Something went wrong. Please try again later.";
     }
+    mysqli_stmt_close($stmt);
 
     // Close connection
     mysqli_close($link);
