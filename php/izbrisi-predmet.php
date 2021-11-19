@@ -28,39 +28,14 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         }
     }
 
-    //naloga
-    $sql_naloge = "DELETE FROM naloge WHERE id_predmet = ?";
     
-    if($stmt = mysqli_prepare($link, $sql_naloge)){
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
-        $param_id = trim($_POST["id"]);
-        if(mysqli_stmt_execute($stmt)){
-        } else{
-            echo "Oops! Something went wrong. Please try again later.";
-        }
-    }
-    // mysqli_stmt_close($stmt);
-    
-    
-    //predmet
-    $sql = "DELETE FROM predmeti WHERE id_predmet = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)){
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
-        
-        $param_id = trim($_POST["id"]);
-        
-        if(mysqli_stmt_execute($stmt)){
-            header("location: predmeti.php");
-            exit();
-        } else{
-            echo "Oops! Something went wrong. Please try again later.";
-        }
-    }
-     
     mysqli_stmt_close($stmt);
     
     mysqli_close($link);
+    
+    $param_id = trim($_POST["id"]);
+    header("location: izbrisiPredmet.php?idpred=".$param_id);
+    exit();
 } else{
     if(empty(trim($_GET["id"]))){
         header("location: error-predmeti.php");
