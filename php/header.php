@@ -18,6 +18,10 @@
         if($status === 'a'){
             echo '<a href="admin.php" class="logout">ADMIN</a>';
         }
+        if($status === 'd'){
+            echo '<a href="profil.php" class="logout">Moj profil</a>';
+            
+        }
         ?>
         <a href="logout.php" class="logout">Odjavi se</a>
     </header>

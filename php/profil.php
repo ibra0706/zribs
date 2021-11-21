@@ -1,6 +1,8 @@
 <?php
 // Check existence of id parameter before processing further
-if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
     // Include config file
     require_once "config.php";
     
@@ -12,7 +14,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         mysqli_stmt_bind_param($stmt, "i", $param_id);
         
         // Set parameters
-        $param_id = trim($_GET["id"]);
+        $param_id = $_SESSION['id'];
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
@@ -43,11 +45,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     
     // Close connection
     mysqli_close($link);
-} else{
-    // URL doesn't contain id parameter. Redirect to error page
-    header("location: error-dijaki.php");
-    exit();
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -66,13 +64,18 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             border: none;
         }
     </style>
+    <link rel="stylesheet" href="../css/profil.css">
 </head>
+
+<?php include('header.php'); ?>
 <body>
+
     <div class="wrapper">
+        <div class="okvir">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">Poglej dijaka</h1>
+                    <h1 class="mt-5 mb-3">Moj profil</h1>
                     <div class="form-group">
                         <label>Ime</label>
                         <p><b><?php echo $row["ime"]; ?></b></p>
@@ -85,10 +88,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Mail</label>
                         <p><b><?php echo $row["mail"]; ?></b></p>
                     </div>
-                    <p><a href="dijaki.php" class="btn btn-primary">Nazaj</a></p>
+                    <p><a href="uredi-profil.php" class="btn btn-primary">Uredi</a></p>
                 </div>
             </div>        
         </div>
+    </div>
     </div>
 </body>
 </html>

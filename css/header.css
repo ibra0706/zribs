@@ -26,4 +26,9 @@ h1 a {
   border-radius: 2px;
   font-family: "Lato";
   font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+a:hover{
+  text-decoration: none;
 }

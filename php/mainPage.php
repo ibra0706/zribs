@@ -111,7 +111,7 @@
     } else{
         echo "Oops! Something went wrong. Please try again later.";
     }
-    mysqli_stmt_close($stmt);
+    // mysqli_stmt_close($stmt);
 
     // Close connection
     mysqli_close($link);
