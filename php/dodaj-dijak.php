@@ -105,6 +105,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+<?php include('header.php') ?>
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -133,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="invalid-feedback"><?php echo $geslo_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Dodaj">
-                        <a href="ucitelji.php" class="btn btn-secondary ml-2">Prekliči</a>
+                        <a href="dijaki.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        

@@ -64,7 +64,7 @@
 </head>
 <body>
 <?php include "header.php" ?>
-    <a href="http://localhost/zribs/php/admin.php" class="retard">Nazaj</a>
+    <a href="admin.php" class="retard">Nazaj</a>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -87,7 +87,6 @@
                                         echo "<th>#</th>";
                                         echo "<th>Ime predmeta</th>";
                                         echo "<th>Kratica</th>";
-                                        echo "<th>Letnik</th>";
                                         echo "<th>Možnosti</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -97,7 +96,6 @@
                                         echo "<td>" . $row['id_predmet'] . "</td>";
                                         echo "<td>" . $row['ime_predmeta'] . "</td>";
                                         echo "<td>" . $row['kratica'] . "</td>";
-                                        echo "<td>" . $row['letnik'] . "</td>";
                                         echo "<td>";
                                             echo '<a href="beri-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Poglej" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
                                             echo '<a href="posodobi-predmet.php?id='. $row['id_predmet'] .'" class="mr-3" title="Posodobi" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';

@@ -80,7 +80,7 @@
 </head>
 <body>
     <?php include "header.php" ?>
-    <a href="http://localhost/zribs/php/admin.php" class="retard">Nazaj</a>
+    <a href="admin.php" class="retard">Nazaj</a>
     <div class="main">
     <div class="wrapper">
         <div class="container-fluid" padding="0">
