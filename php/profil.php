@@ -76,19 +76,21 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="mt-5 mb-3">Moj profil</h1>
+                    <div class="okvir2">
                     <div class="form-group">
                         <label>Ime</label>
-                        <p><b><?php echo $row["ime"]; ?></b></p>
+                        <p><?php echo $row["ime"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Priimek</label>
-                        <p><b><?php echo $row["Priimek"]; ?></b></p>
+                        <p><?php echo $row["Priimek"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Mail</label>
-                        <p><b><?php echo $row["mail"]; ?></b></p>
+                        <p><?php echo $row["mail"]; ?></p>
                     </div>
                     <p><a href="uredi-profil.php" class="btn btn-primary">Uredi</a></p>
+                    </div>
                 </div>
             </div>        
         </div>

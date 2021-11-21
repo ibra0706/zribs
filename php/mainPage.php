@@ -30,9 +30,13 @@
             if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
+<<<<<<< Updated upstream
 
             if($_SESSION['status']==='a'){ header('location: admin.php');}
 
+=======
+            if($_SESSION['status']==='a'){ header('location: admin.php');}
+>>>>>>> Stashed changes
             $id = $_SESSION['id'];
             if($_SESSION['status'] == 'u'){
                 $table = "uciteljPredmet";
@@ -42,7 +46,10 @@
                 $idtable = "id_dijaki";
             }
 
+<<<<<<< Updated upstream
             
+=======
+>>>>>>> Stashed changes
             $sql = "SELECT p.*, d.* FROM $table d, predmeti p  where $idtable = $id AND  p.id_predmet = d.id_predmet;";
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){

@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                                     $_SESSION["status"] = 'a';
                                                     $_SESSION["mail"] = $mail;                            
                                                     
-                                                    header("location: ./mainPage.php");
+                                                    header("location: ./admin.php");
                                                 } else{
                                                     $login_err = "Nepravilno geslo ali mail.";
                                                 }
