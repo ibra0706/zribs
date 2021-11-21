@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -22,34 +21,36 @@ main {
   display: flex;
   height: 90%;
   width: 80%;
-  border:solid 2px #fa941d;
   padding: 1rem;
   flex-direction: column;
   gap: 1rem;
 }
 
-.naloga {
-  width: 100%;
-}
-
-.naloga a {
+.naloga .a {
   padding: 0.5rem;
   padding-left: 2rem;
-  margin: 0 1rem;
   text-decoration: none;
   font-size: 1.2rem;
   color: black;
   width: 100%;
-  background-color: rgba(158, 158, 158, 0.24);
-  border-radius: 25px;
+  background-color: #fff;
+  border: 0.0625rem solid #dadce0;
+  border-radius: 0.5rem;
 }
 .a {
   display: flex;
   width: 100%;
 }
 
+.naloga a {
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+  padding: 0 1rem;
+  line-height: 1.6rem;
+}
 
-.naloga a:hover {
+.naloga .a:hover {
   transition: 300ms;
   background-color: rgba(158, 158, 158, 0.493);
 }
@@ -60,11 +61,29 @@ h2 {
   width: 100%;
 }
 
-.neVemVec{
-    text-decoration: none;
-    background-color: #fa941d;
-    display: block;
-    width: auto;
-    padding: 1rem;
-    color: white;
+.neVemVec {
+  text-decoration: none;
+  background-color: #fa941d;
+  display: block;
+  width: auto;
+  padding: 1rem;
+  color: white;
+}
+
+.predmet-naslov {
+  background: #fa941d;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.predmet-naslov h2 {
+  border: none;
+}
+
+.stevilka {
+  background: #fa941d;
+  border-radius: 5px;
+  padding: 0.2rem 0.55rem;
+  color: #fff;
 }

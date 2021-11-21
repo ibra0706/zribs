@@ -7,63 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/nalogaInfo.css">
     <title>Document</title>
-
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background: white;
-            height: 100vh;
-            width: 100vw;
-            font-family: Lato;
-        }
-        .naloga{
-            width: 60%;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            border: 2px solid #fa941d;
-            padding: 1rem;
-            max-height: 100%;
-        }
-        h2{
-            width: 100%;
-            min-height: 50%;
-            max-height: 70%;
-            border: 1px solid #fa941d;
-            padding: 1rem;
-        }
-        .flex{
-            display: flex;
-            justify-content: space-between;
-        }
-        .red, .red a{
-            color: red;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .datoteka{
-          margin: 0;
-          border: 1px solid #fa941d;
-          padding: 1rem;
-          width: 15%;
-        }
-        .datoteke{
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-        .bdw{
-          border-bottom: 1px solid #fa941d;
-        }
-    </style>
 </head>
 <body>
     <?php include "header.php" ?>
@@ -87,10 +32,15 @@ if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                     echo '<div class="naloga">';
-                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>'. '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbrisi</a>' . '<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>'. '<br>';
-                    echo '<h2>'.$row['navodila'].'</h2>'. '<br>';
+                    echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>'.'<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>';
+                    $status = $_SESSION['status'];
+                    if($status === 'u'){
+                        echo '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbrisi</a>';
+                    }
+                    echo '<div class="vse">';
+                    echo '<h2 class="navodila">Navodila: <br/></h2>'.'<h3>'.$row['navodila']. '</h3><br>';
                     echo '<br/>';
-                    echo '<h3>'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
+                    echo '<h3 class="rok">'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                    
                     echo '<br/>';
                     
@@ -137,9 +87,11 @@ if($result = mysqli_query($link, $sql)){
                   echo '</div>';
 //naloge
                     if ($_SESSION['status'] === 'd') {
+                        echo '<br/>';
                       echo '<p>Datoteka mora biti shranjena kot <i>Ime Priimek - Ime naloge</i></p>';
                     echo '<br/>';
                     include 'nalozi.php';
+                    echo '</div>';
                     }
                     
                     

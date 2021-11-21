@@ -12,14 +12,14 @@
     <main>
         
             <?php
-            echo '<h2>';
+            echo '<div class="predmet-naslov">';
             require_once "config.php";
             $id = $_GET['id'];
             $sql = "SELECT * FROM predmeti WHERE id_predmet = $id";
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
                     $row = mysqli_fetch_array($result);            
-                    echo $row['kratica'] .' - '. $row['ime_predmeta'];;
+                    echo '<h1>'.$row['kratica'].'</h1>'.'<br/>'.'<h2>'. $row['ime_predmeta'].'</h2>';
                     mysqli_free_result($result);
                 } else{
                     echo '<div class="alert alert-danger"><em>Ni še nalog.</em></div>';
@@ -28,7 +28,7 @@
                 echo "Oops! Something went wrong. Please try again later.";
             }
             
-            echo '</h2>';
+            echo '</div>';
         
     
         $status = $_SESSION['status'];
@@ -44,7 +44,7 @@
             if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){              
                             echo '<div class="naloga">';
-                            echo '<div class="a"><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a>
+                            echo '<div class="a"><div class="stevilka">1</div><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a>
                             </div>';
                             echo '</div>';
                     }

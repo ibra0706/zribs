@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+body {
+  background: white;
+  height: 100vh;
+  width: 100vw;
+  font-family: Lato;
+}
+.flex {
+  background: #fa941d;
+  color: #fff;
+  padding: 1rem;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.naloga {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+}
+h2 {
+  width: 100%;
+  min-height: 50%;
+  max-height: 70%;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.red,
+.red a {
+  color: red;
+  cursor: pointer;
+  text-decoration: none;
+}
+.datoteka {
+  margin: 0;
+  border-radius: 10px;
+  background: #fa941d;
+  color: #fff;
+  padding: 1rem;
+  height: 6rem;
+}
+.datoteke {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.bdw {
+  border-bottom: 1px solid #fa941d;
+}
+
+.chinug {
+  margin: auto 0;
+}
+
+.vse {
+  padding: 1rem;
+  border-right: 2px solid #fa941d;
+  border-left: 2px solid #fa941d;
+  border-bottom: 2px solid #fa941d;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.navodila {
+  font-weight: 600;
+}
+
+.rok {
+  font-weight: 600;
+}
