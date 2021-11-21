@@ -17,9 +17,9 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
     // Validate name
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
-        $name_err = "Please enter a name.";
+        $name_err = "Vpiši ime.";
     } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+        $name_err = "Vpiši veljavno ime.";
     } else{
         $name = $input_name;
     }
@@ -27,7 +27,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
     // Validate address address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+        $address_err = "Vpiši priimek.";     
     } else{
         $address = $input_address;
     }
@@ -35,7 +35,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
     // Validate salary
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
-        $salary_err = "Please enter the salary amount.";     
+        $salary_err = "Vpiši mail.";     
     }else{
         $salary = $input_salary;
     }
@@ -58,7 +58,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
-                header("location: dijaki.php");
+                header("location: profil.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -72,7 +72,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
     // Close connection
     mysqli_close($link);
     // Check existence of id parameter before processing further
-}
+}else{
         // Get URL parameter
         $id =  $_SESSION['id'];
         
@@ -114,14 +114,14 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
         
         // Close connection
         mysqli_close($link); 
-
+    }
 ?>
  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Posodobi dijaka</title>
+    <title>Posodobi profil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -156,13 +156,13 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
                             <span class="invalid-feedback"><?php echo $address_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>mail</label>
+                            <label>Mail</label>
                             <input type="text" name="salary" class="form-control <?php echo (!empty($salary_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $salary; ?>">
                             <span class="invalid-feedback"><?php echo $salary_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Potrdi">
-                        <a href="dijaki.php" class="btn btn-secondary ml-2">Prekliči</a>
+                        <a href="profil.php" class="btn btn-secondary ml-2">Prekliči</a>
                     </form>
                 </div>
             </div>        

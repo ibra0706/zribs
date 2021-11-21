@@ -10,6 +10,7 @@
 <body>
     <header>
         <h1><a href="mainPage.php"> ZRIBS</a></h1>
+        <div style="width: 100%"></div>
         <?php
         if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
             session_start();
