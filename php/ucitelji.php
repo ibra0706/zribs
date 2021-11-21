@@ -64,7 +64,7 @@
 </head>
 <body>
 <?php include "header.php" ?>
-    <a href="http://localhost/zribs/php/admin.php" class="retard">Nazaj</a>
+    <a href="admin.php" class="retard">Nazaj</a>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

@@ -138,6 +138,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     </style>
 </head>
 <body>
+    <?php include('header.php') ?>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -156,8 +157,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <span class="invalid-feedback"><?php echo $kratica_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Letnik</label>
-                            <input type="number" min="1" max="4" name="letnik" class="form-control <?php echo (!empty($letink_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $letnik; ?>">
+                            <input hidden type="number" value="1" name="letnik" class="form-control <?php echo (!empty($letink_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $letink_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>

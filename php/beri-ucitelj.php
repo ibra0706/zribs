@@ -68,6 +68,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     </style>
 </head>
 <body>
+<?php include('header.php') ?>
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

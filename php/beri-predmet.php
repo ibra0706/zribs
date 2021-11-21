@@ -68,6 +68,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     </style>
 </head>
 <body>
+<?php include('header.php') ?>
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -80,10 +82,6 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                     <div class="form-group">
                         <label>Kratica</label>
                         <p><b><?php echo $row["kratica"]; ?></b></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Letnik</label>
-                        <p><b><?php echo $row["letnik"]; ?></b></p>
                     </div>
                     <p><a href="predmeti.php" class="btn btn-primary">Nazaj</a></p>
                 </div>

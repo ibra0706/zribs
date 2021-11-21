@@ -53,6 +53,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     </style>
 </head>
 <body>
+<?php include('header.php') ?>
+
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -64,7 +66,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <p>Ali ste prepričani, da želite izbrisati tega dijaka?</p>
                             <p>
                                 <input type="submit" value="Da" class="btn btn-danger">
-                                <a href="ucitelji.php" class="btn btn-secondary">Ne</a>
+                                <a href="dijaki.php" class="btn btn-secondary">Ne</a>
                             </p>
                         </div>
                     </form>
