@@ -65,8 +65,10 @@
         if($status === 'd'){
             echo '<div class="urediBox">
                 <h2>Uredi predmete</h2>
-                    <a class="predmetUredi" href="urediPredmeteDodaj.php">Dodaj predmet</a>
-                    <a class="predmetUredi" href="urediPredmeteOdstrani.php">Odstrani predmete</a>
+                    <div class="linki">
+                        <a class="predmetUredi" href="urediPredmeteDodaj.php">Dodaj predmet</a>
+                        <a class="predmetUredi" href="urediPredmeteOdstrani.php">Odstrani predmete</a>
+                    </div>
                 </div>';
         }
             

@@ -12,9 +12,9 @@
   justify-content: space-evenly;
 }
 
-body{
+body {
   font-family: "Lato";
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .main {
@@ -50,16 +50,19 @@ body{
 
 .mojiPredmeti,
 .vsiPredmeti {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  margin: 1rem 0;
   min-height: 35vh;
   height: auto;
   width: 100%;
   margin-left: 2rem;
+}
+
+h2 {
+  background: #fa941d;
+  color: #fff;
   padding: 1rem;
-  background-color: white;
-  border: 2px solid orange;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .predmeti {
@@ -68,15 +71,20 @@ body{
   justify-content: space-evenly;
   min-height: 20vh;
   height: auto;
+  padding: 1rem;
+  border-right: 2px solid #fa941d;
+  border-left: 2px solid #fa941d;
+  border-bottom: 2px solid #fa941d;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
-h2{
-  margin-bottom: 1rem;
+h2 {
   border-bottom: solid 1px silver;
   width: 100%;
 }
 
-.predmeti a{
+.predmeti a {
   padding: 0.5rem;
   padding-left: 2rem;
   margin: 0 1rem;
@@ -88,21 +96,34 @@ h2{
   border-radius: 25px;
 }
 
-.predmeti a:hover{
+.predmeti a:hover {
   transition: 300ms;
   background-color: rgba(158, 158, 158, 0.493);
 }
 
-.predKrat{
+.predKrat {
   margin-left: 1rem;
   font-size: 1rem;
   font-weight: 0;
 }
 
-.predKrat span{
+.predKrat span {
   background-color: #fa941d;
   border-radius: 50%;
   padding: 0.5rem 1rem;
   margin-right: 1rem;
   color: white;
+}
+
+.linki {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
+  border-right: 2px solid #fa941d;
+  border-left: 2px solid #fa941d;
+  border-bottom: 2px solid #fa941d;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }

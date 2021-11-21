@@ -18,7 +18,6 @@ Izdelajte spletno aplikacijo za podporo šolskega dela na daljavo. Sistem naj om
 učitelj
 ima možnost nalaganja in brisanja gradiv za izbrani predmet (samo za predmete, ki jih poučuje)
 učenec
-možnost registracije ter urejanja profila
 
 Poročilo
 zanka za kreiranje novih dijakov
