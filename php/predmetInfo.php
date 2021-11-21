@@ -42,11 +42,13 @@
         $sql = "SELECT * FROM naloge WHERE id_predmet = $id";
         if($result = mysqli_query($link, $sql)){
             if(mysqli_num_rows($result) > 0){
+                $stevilka=1;
                     while($row = mysqli_fetch_array($result)){              
                             echo '<div class="naloga">';
-                            echo '<div class="a"><div class="stevilka">1</div><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a>
+                            echo '<div class="a"><div class="stevilka">'.$stevilka.'</div><a href="nalogaInfo.php?idnalog='.$row['id_naloge'] . '&idpred='.$id.' ">' . $row['naziv'] .'</a>
                             </div>';
                             echo '</div>';
+                            $stevilka++;
                     }
                 mysqli_free_result($result);
             } else{

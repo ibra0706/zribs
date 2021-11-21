@@ -18,10 +18,10 @@ h1 a {
   font-family: "audiowide";
   background: none;
 }
-a:hover {
+/* a:hover {
   text-decoration: none;
   color: #fff;
-}
+} */
 h1 a:hover {
   text-decoration: none;
   color: #fa941d;

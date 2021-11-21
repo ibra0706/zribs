@@ -12,6 +12,8 @@
 </head>
 <body>
     <?php include "header.php" ?>
+
+    <div class="posebej">
 <?php
 require_once "config.php";
 
@@ -110,6 +112,6 @@ if($result = mysqli_query($link, $sql)){
 mysqli_close($link);
 ?>
 <script src="../js/nalogaInfo.js"></script>
-
+</div>
 </body>
 </html>

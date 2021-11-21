@@ -30,6 +30,9 @@
             if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
+
+            if($_SESSION['status']==='a'){ header('location: admin.php');}
+
             $id = $_SESSION['id'];
             if($_SESSION['status'] == 'u'){
                 $table = "uciteljPredmet";
@@ -38,6 +41,8 @@
                 $table ="dijakPredmet";
                 $idtable = "id_dijaki";
             }
+
+            
             $sql = "SELECT p.*, d.* FROM $table d, predmeti p  where $idtable = $id AND  p.id_predmet = d.id_predmet;";
             if($result = mysqli_query($link, $sql)){
                 if(mysqli_num_rows($result) > 0){
@@ -57,6 +62,7 @@
             } else{
                 echo "Oops! Please try again later.";
             }
+    
             ?>
             </div>
     </div>
