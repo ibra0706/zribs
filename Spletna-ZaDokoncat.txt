@@ -17,7 +17,6 @@ dnevno poročilo - kaj ste naredili na posamezen dan - vsak član skupine napiš
 Izdelajte spletno aplikacijo za podporo šolskega dela na daljavo. Sistem naj omogoča tri poglede:
 učitelj
 ima možnost nalaganja in brisanja gradiv za izbrani predmet (samo za predmete, ki jih poučuje)
-učenec
 
 Poročilo
 zanka za kreiranje novih dijakov
