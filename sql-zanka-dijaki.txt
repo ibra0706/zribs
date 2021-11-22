@@ -1,0 +1,9 @@
+$i=1;
+    While ($i<= 100)
+    {
+       $sql="INSERT INTO dijak_predmet
+          (id_dijaka, id_predmeta)
+          VALUES
+          (wdajdjpo, jsadioioja)";
+       $i++;
+    }

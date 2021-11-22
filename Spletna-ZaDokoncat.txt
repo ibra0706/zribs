@@ -1,24 +1,7 @@
-1.SPLOŠNA NAVODILA
 postavitev aplikacije na strežniku z OS linux
-
-Naloge po vlogah
-vzdrževalec IS:
-dokumentacija
-onameščanja in konfiguracije strežnika
-oprogramske rešitve
-razvijalca:
-specifikacije sistema
-izdelava spletne aplikacije
-všečna oblika
+dokumentacija onameščanja in konfiguracije strežnika 
 testiranje spletne aplikacije
 vsi:
 dnevno poročilo - kaj ste naredili na posamezen dan - vsak član skupine napiše za sebe datum + natančno poročilo kaj je delal, kaj je naredil, česa mu ni uspelo narediti, zakaj mu ni uspelo
-2.VSEBINSKA NAVODILA
-Izdelajte spletno aplikacijo za podporo šolskega dela na daljavo. Sistem naj omogoča tri poglede:
-učitelj
 ima možnost nalaganja in brisanja gradiv za izbrani predmet (samo za predmete, ki jih poučuje)
-
 Poročilo
-zanka za kreiranje novih dijakov
-lep pogled na predmetnik
-lepši meni
