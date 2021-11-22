@@ -38,15 +38,17 @@ h1 a:hover {
   letter-spacing: 3px;
   width: 20ch;
   text-align: center;
-  }
+}
 
-
-
-.zribs:hover{
+.zribs:hover {
   text-decoration: none;
   color: #fa941d;
 }
 
-.logout:hover{
+.logout:hover {
   color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
 }

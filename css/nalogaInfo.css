@@ -72,16 +72,33 @@ h2 {
 
 .navodila {
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navodila a {
+  text-decoration: none;
+  color: red;
+}
+
+.datoteke a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
 }
 
 .rok {
   font-weight: 600;
 }
 
-.posebej{
-  margin-top: 0.5rem ;
+.posebej {
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+#nekineki {
+  font-weight: 700;
 }

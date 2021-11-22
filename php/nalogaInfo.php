@@ -36,17 +36,19 @@ if($result = mysqli_query($link, $sql)){
                     echo '<div class="naloga">';
                     echo '<div class="flex">'.'<h1>'.$row['naziv'].'</h1>'.'<a href="'.$chinug.'" class="red chinug" >X</a>'.'</div>';
                     $status = $_SESSION['status'];
-                    if($status === 'u'){
-                        echo '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbrisi</a>';
-                    }
                     echo '<div class="vse">';
-                    echo '<h2 class="navodila">Navodila: <br/></h2>'.'<h3>'.$row['navodila']. '</h3><br>';
+                    echo '<div class="naDva">';
+                    echo '<h2 class="navodila">Navodila: ';
+                    if($status === 'u'){
+                        echo '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbriši</a> </div>';
+                    }
+                    echo '<br/></h2>'.'<h3>'.$row['navodila']. '</h3><br>';
                     echo '<br/>';
                     echo '<h3 class="rok">'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
                    
                     echo '<br/>';
                     
-                    echo '<h3>Oddane datoteke:</h3>';
+                    echo '<h3 id="nekineki">Oddane datoteke:</h3>';
                     echo '<br/>';
                     echo '<div class="datoteke">';
                   //naloge
