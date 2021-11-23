@@ -1,9 +1,9 @@
 $i=1;
     While ($i<= 100)
     {
-       $sql="INSERT INTO dijak_predmet
-          (id_dijaka, id_predmeta)
+       $sql="INSERT INTO dijaki
+          (id_dijaki, ime, Priimek, mail, geslo, geslo_vidno)
           VALUES
-          (wdajdjpo, jsadioioja)";
+          (wdajdjpo, jsadioioja, spdpsadpok, dsaodkdaso, imdaiomdoamd, adsidsadsaoisa)";
        $i++;
     }

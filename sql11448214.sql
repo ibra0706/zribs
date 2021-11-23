@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql11.freesqldatabase.com
--- Generation Time: Nov 09, 2021 at 06:38 AM
+-- Generation Time: Nov 23, 2021 at 06:44 AM
 -- Server version: 5.5.62-0ubuntu0.14.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.16
 
@@ -67,7 +67,7 @@ CREATE TABLE `dijaki` (
 --
 
 INSERT INTO `dijaki` (`id_dijaki`, `ime`, `Priimek`, `mail`, `geslo`, `geslo_vidno`) VALUES
-(2, 'nusaa', 'pederusaa', 'vaucc@jebomajku.com', '$2y$10$iorjgYBZWAmlufpdJOXjOu5ZLodwBilDvCaHB/Z6.cYzKoTODCo/.', '123'),
+(2, 'nusaa', 'pederusaaa', 'vaucc@jebomajku.com', '$2y$10$iorjgYBZWAmlufpdJOXjOu5ZLodwBilDvCaHB/Z6.cYzKoTODCo/.', '123'),
 (5, 'kunuz', 'makur', 'dasjnv@djan-com', '$2y$10$erCKZtDLqzR0fkQy0tm5je.Ii3.UfjCnXzuFDa.SXJRpDOwEIsy2K', '1345'),
 (6, 'otaÅ¡i', 'makaron', 'nujez@gmail.com', '$2y$10$azqa/UW.3dHbApLprYbmH.qZlHwEg1FsNVhJWUTDUQqyOqo6nNJjK', '391348'),
 (7, 'cheken', 'meren', 'skf@dijak.com', '$2y$10$VjmwwJo8BswZxfHzFPpBYePF9XczN8xLaoWnP35hTXXAY90WmKYnq', 'dsjaks'),
@@ -192,7 +192,8 @@ INSERT INTO `dijaki` (`id_dijaki`, `ime`, `Priimek`, `mail`, `geslo`, `geslo_vid
 (128, 'testIme', 'AKSD', 'asdasda', '$2y$10$TIJsaiw2F4q650kXd6baVuOIzg7RbyCRMouHsP7H.Oj8cXhrVQ6JS', 'asdadad'),
 (129, 'testIme', 'AKSD', 'asdasda', '$2y$10$dco.mTRVbYA/paczuivl7emAmgWSTNOLtSIIgfHSJg/0yd0J7FNuG', 'asdadad'),
 (130, 'testIme', 'AKSD', 'asdasda', '$2y$10$jpau12yfPdrMoGrUHRfvVO/kE9khYw0xVZz6YoyciWCSpxTY77J3.', 'asdadad'),
-(131, 'Domzi', 'Domzi', 'domzi.coolman@gmail.com', '$2y$10$dzKL7BDr8MBxD9Y8ShGgSeEzslJTSZ4vWXWz7LQ0s/hoMvREzVlZS', '');
+(131, 'Domzi', 'Domzi', 'domzi.coolman@gmail.com', '$2y$10$dzKL7BDr8MBxD9Y8ShGgSeEzslJTSZ4vWXWz7LQ0s/hoMvREzVlZS', ''),
+(132, 'asd', 'asd', 'asd@gmail.com', '$2y$10$AQQ0XA7wmFFVIfikmfCJ7uhj1yGHjOdzxD85fZc60QVfQEF9xvfZS', '');
 
 -- --------------------------------------------------------
 
@@ -211,29 +212,19 @@ CREATE TABLE `dijakPredmet` (
 --
 
 INSERT INTO `dijakPredmet` (`id_di_pre_povezava`, `id_dijaki`, `id_predmet`) VALUES
-(192, 12, 25),
-(193, 12, 28),
-(194, 12, 29),
-(195, 12, 33),
-(196, 12, 31),
-(197, 12, 32),
-(198, 2, 25),
-(199, 2, 30),
-(200, 2, 31),
-(201, 2, 25),
-(202, 2, 30),
-(203, 2, 31),
-(204, 2, 25),
-(205, 2, 30),
-(206, 2, 31),
-(207, 2, 25),
-(208, 2, 30),
-(209, 2, 31),
 (210, 131, 25),
 (211, 131, 26),
 (212, 131, 27),
 (213, 131, 28),
-(214, 131, 29);
+(214, 131, 29),
+(215, 132, 29),
+(216, 132, 30),
+(221, 12, 27),
+(222, 12, 29),
+(223, 12, 25),
+(226, 2, 25),
+(227, 2, 26),
+(228, 2, 30);
 
 -- --------------------------------------------------------
 
@@ -268,7 +259,16 @@ CREATE TABLE `naloge` (
 --
 
 INSERT INTO `naloge` (`id_naloge`, `navodila`, `naziv`, `datum_oddaje`, `datum_rok`, `id_predmet`, `id_ucitlja`) VALUES
-(19, 'testno besedilo', 'test', '2021-11-07 00:00:00', '2201-12-21 00:00:00', 25, 3);
+(21, 'wdkadlk', 'dadl', '2021-11-18 00:00:00', '2021-10-01 00:00:00', 25, 3),
+(23, 'testna naloga', 'test', '2021-11-21 00:00:00', '2021-11-25 00:00:00', 25, 3),
+(24, 'sdsf', 'aadzc', '2021-11-21 00:00:00', '2021-11-12 00:00:00', 25, 3),
+(25, 'sdads', 'sddsdas', '2021-11-22 00:00:00', '2021-11-28 00:00:00', 25, 3),
+(27, 'xcxvxvxv', 'test', '2021-11-22 00:00:00', '2021-11-15 00:00:00', 25, 3),
+(28, 'fdsstfuhjik', 'aad', '2021-11-22 00:00:00', '2021-11-11 00:00:00', 25, 3),
+(29, 'asdfasds', 'aad', '2021-11-22 00:00:00', '2021-11-16 00:00:00', 25, 3),
+(30, 'gjhkl', 'Z\\ZX\\', '2021-11-22 00:00:00', '2021-11-28 00:00:00', 25, 3),
+(31, 'asdadasdasd', 'neki\\zxx', '2021-11-22 00:00:00', '2021-11-27 00:00:00', 25, 3),
+(32, 'asdas', 'sdas', '2021-11-23 00:00:00', '2021-11-25 00:00:00', 25, 3);
 
 -- --------------------------------------------------------
 
@@ -289,16 +289,10 @@ CREATE TABLE `odaneNaloge` (
 --
 
 INSERT INTO `odaneNaloge` (`id_di_nal`, `id_naloge`, `id_predmet`, `id_dijaki`, `ime_datoteke`) VALUES
-(13, 19, 25, 2, 'bg1.jpg'),
-(14, 19, 25, 2, 'pexels-riccardo-bertolo-4245826.jpg'),
-(16, 19, 25, 2, 'glenn-carstens-peters-203007-unsplash.jpg'),
-(17, 19, 25, 2, 'check-solid.svg'),
-(18, 19, 25, 2, '01_Vaja_SMV.rtf'),
-(19, 19, 25, 2, 'zribs.sql'),
-(20, 19, 25, 2, 'beri-ucitelj.php'),
-(21, 19, 25, 2, 'config.php'),
-(22, 19, 25, 2, 'admin.php'),
-(23, 19, 25, 2, 'beri-dijak.php');
+(38, 21, 25, 2, 'a.docx'),
+(39, 21, 25, 2, 'Research.txt'),
+(40, 21, 25, 2, 'Virtualna uÄilnica.txt'),
+(49, 21, 25, 2, 'Notes.txt');
 
 -- --------------------------------------------------------
 
@@ -518,27 +512,27 @@ ALTER TABLE `adminTable`
 -- AUTO_INCREMENT for table `dijaki`
 --
 ALTER TABLE `dijaki`
-  MODIFY `id_dijaki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id_dijaki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 --
 -- AUTO_INCREMENT for table `dijakPredmet`
 --
 ALTER TABLE `dijakPredmet`
-  MODIFY `id_di_pre_povezava` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
+  MODIFY `id_di_pre_povezava` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 --
 -- AUTO_INCREMENT for table `naloge`
 --
 ALTER TABLE `naloge`
-  MODIFY `id_naloge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_naloge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `odaneNaloge`
 --
 ALTER TABLE `odaneNaloge`
-  MODIFY `id_di_nal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_di_nal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `predmeti`
 --
 ALTER TABLE `predmeti`
-  MODIFY `id_predmet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_predmet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `ucitelji`
 --
@@ -548,7 +542,7 @@ ALTER TABLE `ucitelji`
 -- AUTO_INCREMENT for table `uciteljPredmet`
 --
 ALTER TABLE `uciteljPredmet`
-  MODIFY `id_uc_pre_povezava` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_uc_pre_povezava` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- Constraints for dumped tables
 --
