@@ -8,6 +8,9 @@ $id_ucitelj = $_SESSION['id'];
 if($_SERVER["REQUEST_METHOD"] == "GET") {$id_predmet = $_GET['idpred'];}
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_predmet = trim($_POST["id_predmet"]);
+    echo trim($_POST["datum_rok"]);
+    echo "  ";
+    echo date('Y-m-d');
 
 
     $input_ime_naloge = trim($_POST["ime_naloge"]);
@@ -27,7 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_datum_rok = trim($_POST["datum_rok"]);
     if(empty($input_datum_rok)){
         $datum_rok_err = "Prosim vnesi rok oddaje";     
-    } else{
+    } 
+    else if($input_datum_rok<date('Y-m-d')){
+        $datum_rok_err = "Prosim vnesi datum, ki za danasnjim dnem.";
+    }
+    else{
         $datum_rok = $input_datum_rok;
     }
     
@@ -96,6 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+    
     <?php include "header.php" ?>
     <div class="wrapper">
         <div class="container-fluid">
