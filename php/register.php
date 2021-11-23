@@ -111,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div> 
             </div>
             <div>
-                <input type="text" name="mail" placeholder="Mail"  class="form-control<?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mail; ?>">
+                <input type="text" name="mail" placeholder="Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  class="form-control<?php echo (!empty($mail_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $mail; ?>">
                 <div class="napaka"><?php echo $mail_err; ?></div>
             </div>
             <div>
