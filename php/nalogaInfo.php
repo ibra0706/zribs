@@ -41,13 +41,30 @@ if($result = mysqli_query($link, $sql)){
                     echo '<h2 class="navodila">Navodila: ';
                     if($status === 'u'){
                         echo '<a href="izbrisiNalogo.php?idpred='.$id_predmet.'&idnalog='.$id.'">Izbriši</a> </div>';
+                        echo '<br/>';
+                        echo '<h2>Naloži gradivo:</h2>';
+                        include 'naloziUcitelj.php';
                     }
+                    $sql_gradiva = "SELECT * FROM odanoGradivo WHERE id_ucitlja=$id_dijak and id_predmet=$id_predmet and id_naloge=$id";
+                  if($result_gradiva = mysqli_query($link, $sql_gradiva)){
+                      if(mysqli_num_rows($result_gradiva) > 0){
+                              while($row_gradiva = mysqli_fetch_array($result_gradiva)){
+                                  echo '<div class="datoteka">';
+                                  echo '<h3 class="red bdw"><a href="izbrisiDatoteko.php?idpred='.$id_predmet.'&idnalog='.$id.'&ime='.$row_gradiva['ime_gradiva'].'&id='.$row_gradiva['id_di_gra'].'">X</a></h3>';
+                                  echo $row_gradiva['ime_gradiva'] . ' '; 
+                                   
+                                  echo '</div>'; 
+                              }
+
+                          mysqli_free_result($result_gradiva);
+                      } else{
+                          echo '<div class="alert alert-danger"><em>ni oddane naloge</em></div>';
+                      }
+                      }
                     echo '<br/></h2>'.'<h3>'.$row['navodila']. '</h3><br>';
                     echo '<br/>';
                     echo '<h3 class="rok">'. 'Rok oddaje: '.$row['datum_rok'].'</h3>' . '<br>';
-                   
                     echo '<br/>';
-                    
                     echo '<h3 id="nekineki">Oddane datoteke:</h3>';
                     echo '<br/>';
                     echo '<div class="datoteke">';
