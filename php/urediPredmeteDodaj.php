@@ -11,8 +11,6 @@ if(isset($_GET['id'])){
     $id = $_SESSION["id"];
     $vhod = "dijak";
 }
-
-
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
         $vhod = trim($_POST['vhod']);
