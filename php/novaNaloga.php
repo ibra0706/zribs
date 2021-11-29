@@ -54,14 +54,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $par_id_ucitelj = $id_ucitelj;
 
             if(mysqli_stmt_execute($stmt)){
+                //dodaj gradivo
+                $sql_gradiva = "SELECT * FROM naloge order by id_naloge desc";
+                if($result_gradiva = mysqli_query($link, $sql_gradiva)){
+                    if(mysqli_num_rows($result_gradiva) >0 ){
+                            $row_gradiva = mysqli_fetch_array($result_gradiva); 
+                            header("location: nalogaInfo.php?idnalog=" .$row_gradiva['id_naloge'].'&idpred='. $id_predmet);
+                        mysqli_free_result($result_gradiva);
+                    } else{
+                        echo '<div class="alert alert-danger"><em>ni oddanega gradiva</em></div>';
+                    }
+                  }
 
-                header("location: predmetInfo.php?id=" . $id_predmet);
+
+
+                
                 exit();
             } else{
 
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
+
+
+
+
         
 
         mysqli_stmt_close($stmt);

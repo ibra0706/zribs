@@ -44,7 +44,7 @@ if ($uploadOk == 0) {
         $sql = "INSERT INTO odanoGradivo (id_predmet, id_naloge, id_ucitlja, ime_gradiva) VALUES (?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
-            mysqli_stmt_bind_param($stmt, "iiis", $par_id_naloge, $par_id_predmet, $par_id_ucitlja, $par_ime_datoteke);
+            mysqli_stmt_bind_param($stmt, "iiis", $par_id_predmet, $par_id_naloge,  $par_id_ucitlja, $par_ime_datoteke);
             
             $par_id_naloge = $id_naloge;
             $par_id_predmet = $id_predmet;
